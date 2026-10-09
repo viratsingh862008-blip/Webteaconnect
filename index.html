@@ -1,0 +1,938 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f34">
+  <meta name="description" content="WebTea Connect is the living directory of websites, digital products, and creative experiments built by WebTea. Explore the work and open every live project.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WebTea Connect — Good ideas, connected.">
+  <meta property="og:description" content="One studio. Many directions. Explore websites, digital products, and creative experiments built by WebTea.">
+  <meta property="og:theme-color" content="#123f34">
+  <title>WebTea Connect — Good ideas, connected.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --pine: #123f34;
+      --pine-deep: #0a2b24;
+      --pine-mid: #1c5b49;
+      --cream: #f5f3e9;
+      --paper: #fffdf5;
+      --acid: #d5f76b;
+      --coral: #ff8465;
+      --ink: #142d27;
+      --muted: #67736a;
+      --line: rgba(18, 63, 52, .15);
+      --mono: "DM Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+      --display: "Space Grotesk", "DM Sans", sans-serif;
+      --body: "DM Sans", system-ui, sans-serif;
+      --radius: 22px;
+      --shadow: 0 18px 50px rgba(10, 43, 36, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .15;
+      background-image: radial-gradient(rgba(18, 63, 52, .16) .7px, transparent .7px);
+      background-size: 7px 7px;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
+    }
+    .wrap { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
+    .mono { font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 500 11px/1.4 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--coral);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255, 132, 101, .14);
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 243, 233, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(18, 63, 52, .09);
+    }
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      min-width: 185px;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      position: relative;
+      width: 39px;
+      height: 39px;
+      border-radius: 13px;
+      color: var(--acid);
+      background: var(--pine);
+      transform: rotate(-4deg);
+    }
+    .brand-mark svg { width: 25px; height: 25px; }
+    .brand-copy { display: flex; flex-direction: column; line-height: 1; gap: 5px; }
+    .brand-name { font: 700 21px/1 var(--display); letter-spacing: -.07em; }
+    .brand-name span { color: var(--pine-mid); }
+    .brand-sub { font: 500 9px/1 var(--mono); letter-spacing: .17em; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: #42544b;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--pine-mid); }
+    .nav-cta, .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid var(--pine);
+      border-radius: 999px;
+      padding: 13px 19px;
+      background: var(--pine);
+      color: var(--paper);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+      cursor: pointer;
+    }
+    .nav-cta:hover, .button:hover { transform: translateY(-2px); background: var(--pine-mid); }
+    .button--light { background: var(--acid); color: var(--pine-deep); border-color: var(--acid); }
+    .button--light:hover { background: #e1ff91; color: var(--pine-deep); }
+    .button--outline { background: transparent; color: var(--paper); border-color: rgba(255,255,255,.28); }
+    .button--outline:hover { background: rgba(255,255,255,.09); }
+    .button svg, .nav-cta svg { width: 14px; height: 14px; }
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--pine);
+      border-radius: 50%;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--paper);
+      background: var(--pine);
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 650px;
+      height: 650px;
+      border: 1px solid rgba(213, 247, 107, .17);
+      border-radius: 50%;
+      top: -325px;
+      right: -85px;
+      box-shadow: 0 0 0 45px rgba(213,247,107,.025), 0 0 0 90px rgba(213,247,107,.02), 0 0 0 135px rgba(213,247,107,.018);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(213,247,107,.55), transparent);
+    }
+    .hero-grid {
+      min-height: 570px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(330px, .95fr);
+      gap: 42px;
+      align-items: center;
+      padding-block: 82px 84px;
+    }
+    .hero-copy { position: relative; z-index: 2; max-width: 660px; }
+    .hero .eyebrow { color: var(--acid); }
+    .hero h1 {
+      max-width: 700px;
+      margin: 25px 0 22px;
+      font: 600 clamp(56px, 7vw, 88px)/.98 var(--display);
+      letter-spacing: -.085em;
+    }
+    .hero h1 .soft {
+      display: block;
+      font-weight: 400;
+      color: #d8e1d4;
+    }
+    .hero h1 .highlight { color: var(--acid); }
+    .hero-intro {
+      max-width: 485px;
+      margin: 0;
+      color: #cfdbd2;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 31px; }
+    .hero-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      margin-top: 49px;
+      color: #9db5a8;
+      font: 10px/1.5 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero-foot .separation { width: 4px; height: 4px; background: var(--coral); border-radius: 50%; }
+    .hero-art { min-height: 425px; position: relative; display: grid; place-items: center; }
+    .art-grid {
+      position: absolute;
+      width: min(100%, 455px);
+      height: 360px;
+      opacity: .2;
+      background-image: linear-gradient(rgba(213,247,107,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(213,247,107,.25) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(ellipse at center, black 12%, transparent 72%);
+    }
+    .orbit {
+      position: absolute;
+      width: 385px;
+      height: 385px;
+      border: 1px solid rgba(213,247,107,.25);
+      border-radius: 50%;
+      transform: rotate(-25deg) scaleY(.72);
+    }
+    .orbit::before, .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 31px;
+      border: 1px dashed rgba(213,247,107,.24);
+      border-radius: 50%;
+    }
+    .orbit::after { inset: 68px; border-style: solid; opacity: .6; }
+    .connect-panel {
+      width: min(100%, 355px);
+      position: relative;
+      padding: 20px;
+      transform: rotate(3deg);
+      border-radius: 20px;
+      background: var(--paper);
+      color: var(--pine);
+      box-shadow: 0 35px 75px rgba(2, 20, 16, .34);
+      animation: float 6s ease-in-out infinite;
+    }
+    .panel-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 15px; border-bottom: 1px solid #e7e8dc; }
+    .panel-label { font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .live-dot { display: inline-flex; align-items: center; gap: 6px; color: #47785e; font: 9px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .live-dot::before { content: ""; width: 6px; height: 6px; background: #6ac47a; border-radius: 50%; box-shadow: 0 0 0 3px #e2f2df; }
+    .panel-title { margin: 21px 0 6px; font: 600 28px/.98 var(--display); letter-spacing: -.06em; }
+    .panel-caption { color: #68796e; font-size: 11px; line-height: 1.5; }
+    .panel-stack { display: grid; gap: 8px; margin-top: 20px; }
+    .panel-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 11px;
+      border: 1px solid #e7e8dc;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #fffef9;
+    }
+    .panel-link span:first-child {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border-radius: 8px;
+      background: var(--tile, #d5f76b);
+      color: var(--pine);
+      font: 700 10px var(--mono);
+    }
+    .panel-link .panel-arrow { margin-left: auto; font-size: 17px; font-weight: 400; }
+    .floating-badge {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      background: rgba(19, 63, 52, .75);
+      backdrop-filter: blur(12px);
+      color: var(--paper);
+      font: 10px var(--mono);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    }
+    .floating-badge svg { width: 16px; height: 16px; color: var(--acid); }
+    .floating-badge--one { top: 54px; right: -3px; transform: rotate(7deg); }
+    .floating-badge--two { bottom: 40px; left: -5px; transform: rotate(-6deg); }
+    @keyframes float { 0%,100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-9px) rotate(2deg); } }
+
+    .ticker { overflow: hidden; background: var(--acid); color: var(--pine-deep); border-bottom: 1px solid rgba(18,63,52,.15); }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      gap: 26px;
+      padding: 15px 0;
+      font: 500 10px var(--mono);
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      animation: ticker 34s linear infinite;
+    }
+    .ticker-track span { display: inline-flex; align-items: center; gap: 26px; }
+    .ticker-track b { color: #e0785f; font-size: 15px; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    .section { padding-block: 100px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 34px; }
+    .section h2 { margin: 14px 0 0; font: 600 clamp(37px, 5vw, 58px)/1.02 var(--display); letter-spacing: -.075em; }
+    .section-intro { max-width: 345px; margin: 0 0 4px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+    .section .eyebrow { color: var(--pine-mid); }
+    .directory-head { margin-bottom: 28px; }
+    .directory-head h2 { max-width: 630px; }
+    .directory-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+    .result-count { color: var(--muted); font: 10px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: min(330px, 100%);
+      border: 1px solid rgba(18,63,52,.20);
+      background: rgba(255,253,245,.72);
+      border-radius: 999px;
+      padding: 0 15px;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    .search-box:focus-within { border-color: var(--pine-mid); box-shadow: 0 0 0 4px rgba(28,91,73,.08); }
+    .search-box svg { width: 16px; height: 16px; flex: 0 0 auto; color: #7a897e; }
+    .search-box input { width: 100%; min-width: 0; padding: 13px 0; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 12px; }
+    .search-box input::placeholder { color: #8a938c; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 29px; }
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: #53645a;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .filter-btn span { color: #7c8a80; font: 10px var(--mono); }
+    .filter-btn:hover { border-color: var(--pine-mid); color: var(--pine); }
+    .filter-btn[aria-pressed="true"] { background: var(--pine); color: var(--paper); border-color: var(--pine); }
+    .filter-btn[aria-pressed="true"] span { color: var(--acid); }
+    .project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(18,63,52,.12);
+      border-radius: var(--radius);
+      background: rgba(255,253,245,.83);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      animation: cardIn .4s both;
+    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(18,63,52,.25); }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+    .project-art {
+      --tone: #d5f76b;
+      --tone-ink: #123f34;
+      position: relative;
+      isolation: isolate;
+      min-height: 183px;
+      overflow: hidden;
+      padding: 13px;
+      background: var(--tone);
+      color: var(--tone-ink);
+    }
+    .project-art::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -54px;
+      bottom: -88px;
+      z-index: -1;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      opacity: .20;
+      box-shadow: 0 0 0 20px transparent, 0 0 0 42px currentColor;
+    }
+    .project-art::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 110px;
+      height: 110px;
+      right: 26px;
+      top: 43px;
+      border: 1px solid currentColor;
+      border-radius: 36% 64% 58% 42%;
+      opacity: .20;
+      transform: rotate(28deg);
+    }
+    .project-art--dark { background: #173e35; color: #f5f3e9; --tone: #173e35; --tone-ink: #f5f3e9; }
+    .project-art--orange { background: #f1a47d; --tone: #f1a47d; --tone-ink: #35231c; }
+    .project-art--blue { background: #bfd8dc; --tone: #bfd8dc; --tone-ink: #153f43; }
+    .project-art--lilac { background: #d7c9f3; --tone: #d7c9f3; --tone-ink: #362b53; }
+    .project-art--pink { background: #f6c6ca; --tone: #f6c6ca; --tone-ink: #562b35; }
+    .project-art--cream { background: #ece6d2; --tone: #ece6d2; --tone-ink: #263a30; }
+    .project-art--acid { background: #d5f76b; --tone: #d5f76b; --tone-ink: #123f34; }
+    .project-art--mint { background: #bfe5d0; --tone: #bfe5d0; --tone-ink: #123f34; }
+    .project-art--red { background: #f47c60; --tone: #f47c60; --tone-ink: #3c1f1a; }
+    .art-toolbar { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+    .art-dots { display: inline-flex; gap: 4px; }
+    .art-dots i { width: 5px; height: 5px; background: currentColor; opacity: .55; border-radius: 50%; }
+    .art-domain { max-width: 64%; overflow: hidden; color: currentColor; opacity: .68; font: 8px var(--mono); white-space: nowrap; text-overflow: ellipsis; }
+    .art-main { position: relative; z-index: 1; padding: 23px 9px 10px; max-width: 82%; }
+    .art-kicker { display: block; margin-bottom: 9px; font: 8px var(--mono); letter-spacing: .13em; text-transform: uppercase; opacity: .72; }
+    .art-title { display: block; font: 600 clamp(21px, 2.2vw, 28px)/.98 var(--display); letter-spacing: -.075em; max-width: 255px; }
+    .art-sub { display: inline-flex; margin-top: 15px; padding: 6px 9px; border: 1px solid currentColor; border-radius: 999px; font: 8px var(--mono); letter-spacing: .07em; text-transform: uppercase; opacity: .8; }
+    .art-index { position: absolute; z-index: 1; right: 13px; bottom: 13px; font: 8px var(--mono); opacity: .65; letter-spacing: .08em; }
+    .project-art--lilac::after { border-radius: 50%; width: 125px; height: 125px; right: -5px; top: 50px; border-width: 16px; }
+    .project-art--blue::before { width: 125px; height: 125px; border-radius: 8px; right: 13px; bottom: -65px; transform: rotate(25deg); }
+    .project-art--pink::after { border-radius: 50% 50% 6px 50%; transform: rotate(-20deg); }
+    .project-art--red::before { border-width: 20px; right: -20px; bottom: -95px; }
+    .project-info { display: flex; flex: 1; flex-direction: column; padding: 19px 19px 17px; }
+    .project-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+    .project-category { color: #567062; font: 9px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
+    .project-number { color: #9aa399; font: 9px var(--mono); }
+    .project-info h3 { margin: 0; font: 600 22px/1.1 var(--display); letter-spacing: -.055em; }
+    .project-info p { min-height: 42px; margin: 10px 0 17px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .project-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 13px;
+      border-top: 1px solid rgba(18,63,52,.12);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .project-link span { display: inline-flex; align-items: center; gap: 7px; }
+    .project-link svg { width: 13px; height: 13px; transition: transform .2s ease; }
+    .project-link:hover svg { transform: translate(3px,-2px); }
+    .project-link small { max-width: 63%; overflow: hidden; color: #7e897f; font: 9px var(--mono); white-space: nowrap; text-overflow: ellipsis; }
+    .empty-state { display: none; grid-column: 1 / -1; padding: 50px 20px; border: 1px dashed rgba(18,63,52,.24); border-radius: var(--radius); text-align: center; }
+    .empty-state strong { display: block; font: 600 24px var(--display); letter-spacing: -.05em; }
+    .empty-state p { color: var(--muted); font-size: 13px; }
+    .directory-note { display: flex; align-items: start; gap: 10px; margin-top: 25px; color: #69786d; font-size: 11px; line-height: 1.7; }
+    .directory-note svg { width: 15px; height: 15px; flex: 0 0 auto; margin-top: 2px; }
+
+    .manifesto { position: relative; overflow: hidden; background: #e6e9d8; border-block: 1px solid rgba(18,63,52,.1); }
+    .manifesto-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 65px; align-items: start; padding-block: 86px; }
+    .manifesto-side { position: sticky; top: 110px; }
+    .manifesto-side .eyebrow { color: var(--pine-mid); }
+    .manifesto-side p { max-width: 260px; color: #64766a; font-size: 13px; line-height: 1.8; }
+    .manifesto h2 { max-width: 680px; margin: 0 0 31px; font: 600 clamp(35px, 4.7vw, 58px)/1.03 var(--display); letter-spacing: -.08em; }
+    .manifesto h2 em { font-style: normal; color: #4b7f62; }
+    .capability-list { border-top: 1px solid rgba(18,63,52,.22); }
+    .capability {
+      display: grid;
+      grid-template-columns: 43px 1fr 25px;
+      align-items: center;
+      gap: 15px;
+      padding: 19px 0;
+      border-bottom: 1px solid rgba(18,63,52,.22);
+    }
+    .capability-num { color: #7a8b78; font: 10px var(--mono); }
+    .capability h3 { margin: 0; font: 600 19px var(--display); letter-spacing: -.04em; }
+    .capability p { margin: 5px 0 0; color: #68776b; font-size: 11px; line-height: 1.6; }
+    .capability-mark { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid rgba(18,63,52,.23); border-radius: 50%; font: 12px var(--mono); }
+
+    .contact { padding-block: 95px 100px; }
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 40px;
+      padding: 55px;
+      color: var(--paper);
+      background: var(--pine-deep);
+      border-radius: 30px;
+    }
+    .contact-box::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border: 1px solid rgba(213,247,107,.2);
+      border-radius: 50%;
+      right: 11%;
+      top: -225px;
+      box-shadow: 0 0 0 32px rgba(213,247,107,.025), 0 0 0 64px rgba(213,247,107,.02);
+      pointer-events: none;
+    }
+    .contact-copy { position: relative; z-index: 1; }
+    .contact .eyebrow { color: var(--acid); }
+    .contact h2 { max-width: 640px; margin: 18px 0 16px; font: 600 clamp(42px, 5.5vw, 68px)/.98 var(--display); letter-spacing: -.085em; }
+    .contact h2 span { color: var(--acid); }
+    .contact p { max-width: 430px; margin: 0; color: #becfc3; font-size: 13px; line-height: 1.8; }
+    .contact-actions { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: stretch; gap: 10px; min-width: 185px; }
+    .contact-actions .button { justify-content: space-between; }
+    .contact-small { margin-top: 13px; color: #91a99b; font: 9px var(--mono); text-align: center; }
+
+    .footer { border-top: 1px solid rgba(18,63,52,.13); }
+    .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 23px; }
+    .footer-copy { color: #68786b; font-size: 10px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { color: #536359; font-size: 10px; text-decoration: none; }
+    .footer-links a:hover { color: var(--pine); }
+    .back-top { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--pine); font: 10px var(--mono); text-transform: uppercase; }
+    .back-top svg { width: 13px; height: 13px; }
+
+    @media (min-width: 1450px) { .wrap { width: min(1280px, calc(100% - 80px)); } }
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr .75fr; gap: 18px; min-height: 540px; }
+      .hero h1 { font-size: clamp(52px, 7vw, 72px); }
+      .hero-art { transform: scale(.9); }
+      .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .manifesto-grid { gap: 35px; }
+      .contact-box { padding: 42px; }
+    }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 32px, 600px); }
+      .nav { min-height: 68px; }
+      .brand { min-width: auto; }
+      .menu-toggle { display: grid; }
+      .nav-cta { display: none; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        padding: 18px 20px 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 20px 30px rgba(10,43,36,.08);
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links a { padding: 13px 0; border-bottom: 1px solid rgba(18,63,52,.09); }
+      .hero-grid { display: block; padding-block: 65px 58px; }
+      .hero h1 { font-size: clamp(54px, 13vw, 78px); }
+      .hero-art { min-height: 355px; margin: 18px auto 0; transform: scale(.92); }
+      .hero-foot { margin-top: 35px; gap: 12px; }
+      .floating-badge--one { right: -9px; top: 24px; }
+      .floating-badge--two { left: -4px; bottom: 19px; }
+      .section { padding-block: 70px; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 17px; }
+      .directory-topline { align-items: stretch; flex-direction: column; }
+      .search-box { width: 100%; }
+      .project-grid { gap: 12px; }
+      .project-art { min-height: 160px; padding: 11px; }
+      .art-main { padding: 23px 5px 8px; }
+      .art-title { font-size: 22px; }
+      .project-info { padding: 16px 14px 14px; }
+      .project-info h3 { font-size: 19px; }
+      .project-info p { font-size: 11px; }
+      .project-link small { display: none; }
+      .manifesto-grid { grid-template-columns: 1fr; gap: 26px; padding-block: 65px; }
+      .manifesto-side { position: static; }
+      .manifesto-side p { max-width: 450px; }
+      .contact { padding-block: 70px; }
+      .contact-box { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; border-radius: 24px; }
+      .contact-actions { min-width: 0; max-width: 330px; }
+      .footer-main { align-items: flex-start; flex-direction: column; gap: 15px; }
+    }
+    @media (max-width: 440px) {
+      .wrap { width: calc(100% - 28px); }
+      .brand-name { font-size: 20px; }
+      .brand-sub { font-size: 8px; }
+      .hero h1 { font-size: clamp(48px, 13.2vw, 62px); }
+      .hero-intro { font-size: 13px; }
+      .hero-art { margin-inline: -7px; transform: scale(.86); min-height: 315px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-art { min-height: 185px; }
+      .art-main { padding-top: 28px; }
+      .art-title { font-size: 27px; }
+      .project-info h3 { font-size: 22px; }
+      .project-info p { min-height: auto; font-size: 12px; }
+      .project-link small { display: inline; }
+      .filter-btn { padding: 9px 11px; }
+      .contact h2 { font-size: 45px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WebTea",
+      "url": "https://webxtea.vercel.app/",
+      "description": "A digital studio building websites, digital products, and creative technology."
+    }
+  </script>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="WebTea Connect home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M7 13h15v7.5A5.5 5.5 0 0 1 16.5 26h-4A5.5 5.5 0 0 1 7 20.5V13Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M22 15h1.7a3.2 3.2 0 1 1 0 6.4H22M11 8.5c2.6-1.7 2.6-3.3 0-5M16 9c2.6-1.7 2.6-3.3 0-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M10.5 16.5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-name">webtea<span>.</span></span>
+          <span class="brand-sub">CONNECT / PROJECT INDEX</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="primaryNav" aria-label="Main navigation">
+        <a href="#work">Work directory</a>
+        <a href="#approach">What we build</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 20 20" width="20" height="20" fill="none" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">A living index of what we make</span>
+          <h1>A better web.<span class="soft">Brewed one</span><span class="highlight">idea at a time.</span></h1>
+          <p class="hero-intro">Meet WebTea Connect — a home for our websites, digital products, event experiences, and experimental builds. One studio, many directions. Every card takes you straight to the work.</p>
+          <div class="hero-actions">
+            <a class="button button--light" href="#work">Explore the work <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="button button--outline" href="#approach">What we build</a>
+          </div>
+          <div class="hero-foot">
+            <span>Strategy</span><i class="separation"></i><span>Design</span><i class="separation"></i><span>Development</span><i class="separation"></i><span>Experiments</span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Abstract illustration of connected WebTea projects">
+          <div class="art-grid"></div>
+          <div class="orbit"></div>
+          <div class="connect-panel">
+            <div class="panel-top">
+              <span class="panel-label">WebTea / Connect</span>
+              <span class="live-dot">Project index</span>
+            </div>
+            <div class="panel-title">Everything we make,<br>in one place.</div>
+            <div class="panel-caption">A growing collection of ideas turned into real digital experiences.</div>
+            <div class="panel-stack">
+              <div class="panel-link"><span style="--tile:#d5f76b">01</span> Business websites <span class="panel-arrow">↗</span></div>
+              <div class="panel-link"><span style="--tile:#f1a47d">02</span> WebTea products <span class="panel-arrow">↗</span></div>
+              <div class="panel-link"><span style="--tile:#d7c9f3">03</span> Creative builds <span class="panel-arrow">↗</span></div>
+            </div>
+          </div>
+          <div class="floating-badge floating-badge--one">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 12 7.8l5.5 2.2-5.5 2.2-2 5.3-2-5.3-5.5-2.2 5.5-2.2 2-5.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            Ideas into interfaces
+          </div>
+          <div class="floating-badge floating-badge--two">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Built to be clicked
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Digital experiences <b>✳</b> Websites with purpose <b>✳</b> Creative technology <b>✳</b> Ideas in motion <b>✳</b> Built by WebTea <b>✳</b></span>
+        <span>Digital experiences <b>✳</b> Websites with purpose <b>✳</b> Creative technology <b>✳</b> Ideas in motion <b>✳</b> Built by WebTea <b>✳</b></span>
+      </div>
+    </div>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head directory-head">
+          <div>
+            <span class="eyebrow">The project directory</span>
+            <h2>Made for the real world.<br>Built to be clicked.</h2>
+          </div>
+          <p class="section-intro">Explore the live destinations in the WebTea universe. Search by name, narrow by category, or open any project to experience it for yourself.</p>
+        </div>
+        <div class="directory-topline">
+          <span class="result-count" id="resultCount" aria-live="polite">Loading project directory…</span>
+          <label class="search-box">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.7" stroke="currentColor" stroke-width="1.5"/><path d="m13 13 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <input id="projectSearch" type="search" placeholder="Search projects…" autocomplete="off" aria-label="Search projects">
+          </label>
+        </div>
+        <div class="filters" id="projectFilters" role="group" aria-label="Filter projects">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All work <span>33</span></button>
+          <button type="button" class="filter-btn" data-filter="business" aria-pressed="false">Business websites <span>0</span></button>
+          <button type="button" class="filter-btn" data-filter="product" aria-pressed="false">WebTea products <span>0</span></button>
+          <button type="button" class="filter-btn" data-filter="creative" aria-pressed="false">Creative &amp; events <span>0</span></button>
+          <button type="button" class="filter-btn" data-filter="lab" aria-pressed="false">Experiments <span>0</span></button>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+        <div class="empty-state" id="emptyState">
+          <strong>No matches in this brew.</strong>
+          <p>Try another name or switch back to all work.</p>
+          <button class="button" id="resetSearch" type="button">Reset filters</button>
+        </div>
+        <p class="directory-note">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 9v4M10 6.3h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          The graphic covers are editorial previews for this directory, not screenshots of the linked websites. Project availability and domains can change as builds evolve.
+        </p>
+      </div>
+    </section>
+
+    <section class="manifesto" id="approach">
+      <div class="wrap manifesto-grid">
+        <div class="manifesto-side">
+          <span class="eyebrow">What we bring to the table</span>
+          <p>From the first sketch to the final click, we connect the pieces that make a digital experience feel intentional.</p>
+        </div>
+        <div>
+          <h2>Not just websites.<br><em>Useful things on the internet.</em></h2>
+          <div class="capability-list">
+            <article class="capability">
+              <span class="capability-num">01 /</span>
+              <div><h3>Brand-led websites</h3><p>Clear stories, distinctive visual systems, and responsive experiences built around the business.</p></div>
+              <span class="capability-mark">↗</span>
+            </article>
+            <article class="capability">
+              <span class="capability-num">02 /</span>
+              <div><h3>Digital products</h3><p>Useful interfaces, booking flows, connected tools, and product ideas that move beyond a landing page.</p></div>
+              <span class="capability-mark">↗</span>
+            </article>
+            <article class="capability">
+              <span class="capability-num">03 /</span>
+              <div><h3>Creative &amp; event experiences</h3><p>Invitations, event platforms, interactive storytelling, and memorable moments on screen.</p></div>
+              <span class="capability-mark">↗</span>
+            </article>
+            <article class="capability">
+              <span class="capability-num">04 /</span>
+              <div><h3>AI &amp; rapid experiments</h3><p>New workflows and emerging technology explored through real prototypes, not just slides.</p></div>
+              <span class="capability-mark">↗</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div class="contact-copy">
+            <span class="eyebrow">Your idea can live here next</span>
+            <h2>Got something<br>good <span>brewing?</span></h2>
+            <p>Tell us what you want to build. We can shape the idea, design the experience, and connect the right pieces to bring it to life.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button button--light" href="mailto:easypzbuisness@gmail.com?subject=Project%20enquiry%20%7C%20WebTea">Send a project brief <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="button button--outline" href="#work">Browse live projects <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="contact-small">Small team. Big internet energy.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-main">
+      <div class="footer-copy">© <span id="currentYear">2026</span> WebTea Connect. Built with intent, not templates.</div>
+      <div class="footer-links">
+        <a href="https://webxtea.vercel.app/" target="_blank" rel="noopener noreferrer">WebTea Studio ↗</a>
+        <a href="https://github.com/viratsingh862008-blip/Webteaconnect" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="mailto:easypzbuisness@gmail.com">Email ↗</a>
+      </div>
+      <a class="back-top" href="#top">Back to top <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </footer>
+
+  <script>
+    const projects = [
+      { name: "WebTea Studio", domain: "webxtea.vercel.app", url: "https://webxtea.vercel.app/", category: "product", categoryLabel: "WebTea / Studio", desc: "The studio's front door for brand-led websites, digital experiences, and creative technology.", kicker: "DIGITAL STUDIO", artTitle: "Make the web feel different.", artSub: "Design · Build · Grow", art: "project-art--acid", keywords: "webtea agency studio web design development" },
+      { name: "WebTea HQ", domain: "webteahq.vercel.app", url: "https://webteahq.vercel.app/", category: "product", categoryLabel: "WebTea / Platform", desc: "A central workspace concept for bringing digital operations and AI-assisted workflows together.", kicker: "THE WORKSPACE", artTitle: "A smarter way to connect the work.", artSub: "Operations / AI", art: "project-art--dark", keywords: "webtea hq dashboard operations ai agents" },
+      { name: "WebTea HQ — Build", domain: "web-tea-hq.vercel.app", url: "https://web-tea-hq.vercel.app/", category: "product", categoryLabel: "WebTea / Platform", desc: "A separate deployed iteration of the WebTea HQ experience.", kicker: "CONNECTED SYSTEMS", artTitle: "Every moving piece, in sync.", artSub: "WebTea HQ", art: "project-art--mint", keywords: "web tea hq platform prototype" },
+      { name: "WebTea Beta", domain: "webtea-betav1.vercel.app", url: "https://webtea-betav1.vercel.app/", category: "product", categoryLabel: "WebTea / Studio", desc: "An earlier live iteration of the WebTea studio experience.", kicker: "STUDIO / BETA", artTitle: "Good ideas deserve a place to grow.", artSub: "WebTea / Beta", art: "project-art--orange", keywords: "webtea beta agency site" },
+      { name: "WebTea AR Menu", domain: "webtea-ar.vercel.app", url: "https://webtea-ar.vercel.app/", category: "product", categoryLabel: "WebTea / Product", desc: "An augmented-reality menu concept for making product discovery more interactive.", kicker: "AUGMENTED EXPERIENCE", artTitle: "See the menu differently.", artSub: "AR / Hospitality", art: "project-art--blue", keywords: "webtea ar augmented reality menu restaurant qr" },
+      { name: "Hinata", domain: "hinatav1-omega.vercel.app", url: "https://hinatav1-omega.vercel.app/", category: "product", categoryLabel: "WebTea / AI", desc: "A digital assistant concept connected to the wider WebTea HQ ecosystem.", kicker: "AI ASSISTANT", artTitle: "A calm mind for busy systems.", artSub: "Hinata / AI", art: "project-art--lilac", keywords: "hinata webtea agent ai assistant telegram" },
+      { name: "Dr. Mugdha Mohan", domain: "doctor-mugdamohan.vercel.app", url: "https://doctor-mugdamohan.vercel.app/", category: "business", categoryLabel: "Business / Healthcare", desc: "A dermatologist website concept with local discovery, service information, and WhatsApp-first enquiries.", kicker: "SKIN CARE CENTRE", artTitle: "Care that starts with confidence.", artSub: "Healthcare / Local SEO", art: "project-art--mint", keywords: "doctor mugdha mohan dermatologist skin clinic bettiah" },
+      { name: "RP Events", domain: "rpevent.in", url: "https://rpevent.in/", category: "business", categoryLabel: "Business / Events", desc: "The digital home for an event company creating celebrations and memorable experiences.", kicker: "EVENTS & CELEBRATIONS", artTitle: "Your moments. Thoughtfully made.", artSub: "Events / Weddings", art: "project-art--pink", keywords: "rp events muzaffarpur wedding event planner" },
+      { name: "RP Events — Alternate Build", domain: "rpevents-one.vercel.app", url: "https://rpevents-one.vercel.app/", category: "creative", categoryLabel: "Creative / Events", desc: "A separate live build in the RP Events project family.", kicker: "CELEBRATE WELL", artTitle: "Bring the whole moment together.", artSub: "RP Events", art: "project-art--orange", keywords: "rp events alternate deployment" },
+      { name: "RP Events Connector", domain: "connector-rp-events.vercel.app", url: "https://connector-rp-events.vercel.app/", category: "product", categoryLabel: "Web / Event tools", desc: "A connected companion experience built around the RP Events ecosystem.", kicker: "EVENT OPERATIONS", artTitle: "Keep the moving parts connected.", artSub: "Tools / Events", art: "project-art--dark", keywords: "rp events connector booking system" },
+      { name: "Richa Furniture", domain: "richa-furniture-alpha.vercel.app", url: "https://richa-furniture-alpha.vercel.app/", category: "business", categoryLabel: "Business / Retail", desc: "A product-led furniture website concept designed to make a local business easier to explore online.", kicker: "FURNITURE & LIVING", artTitle: "Make room for better living.", artSub: "Retail / Catalogue", art: "project-art--cream", keywords: "richa furniture sofa interior showroom" },
+      { name: "Easy PZ", domain: "easypz.vercel.app", url: "https://easypz.vercel.app/", category: "business", categoryLabel: "Business / Sports retail", desc: "A digital storefront concept for a local sports retailer and its product catalogue.", kicker: "SPORTS CULTURE", artTitle: "Gear up. Get out there.", artSub: "Sports / Retail", art: "project-art--acid", keywords: "easy pz sports shop wholesale football cricket" },
+      { name: "Easy PZ — Alternate Build", domain: "easy-pz.vercel.app", url: "https://easy-pz.vercel.app/", category: "business", categoryLabel: "Business / Sports retail", desc: "A second deployed version of the Easy PZ experience.", kicker: "SPORTS STORE", artTitle: "Made for the game.", artSub: "Easy PZ", art: "project-art--red", keywords: "easy pz alternate build sports" },
+      { name: "GymBTH", domain: "gymbth.vercel.app", url: "https://gymbth.vercel.app/", category: "business", categoryLabel: "Business / Fitness", desc: "A fitness-focused digital experience for a gym brand.", kicker: "FITNESS / EVERY DAY", artTitle: "Show up for your next level.", artSub: "Fitness / Community", art: "project-art--dark", keywords: "gymbth gym fitness workout" },
+      { name: "GymTea", domain: "gymtea.vercel.app", url: "https://gymtea.vercel.app/", category: "business", categoryLabel: "Business / Fitness", desc: "A gym and fitness website concept from the WebTea project collection.", kicker: "TRAIN WITH INTENT", artTitle: "Stronger starts here.", artSub: "Gym / Fitness", art: "project-art--orange", keywords: "gymtea gym fitness" },
+      { name: "Kingdom Gym", domain: "kingdomgym-mu.vercel.app", url: "https://kingdomgym-mu.vercel.app/", category: "business", categoryLabel: "Business / Fitness", desc: "A separate gym website build focused on fitness, training, and brand presence.", kicker: "YOUR TRAINING SPACE", artTitle: "Earn your strength.", artSub: "Kingdom Gym", art: "project-art--red", keywords: "kingdom gym training fitness" },
+      { name: "Hotel Bhola Inn", domain: "hotel-bhola-inn.vercel.app", url: "https://hotel-bhola-inn.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A hospitality website build for a hotel-branded digital experience.", kicker: "STAY A LITTLE BETTER", artTitle: "A warm welcome, every time.", artSub: "Hospitality / Hotel", art: "project-art--cream", keywords: "hotel bhola inn stay hospitality booking" },
+      { name: "Hotel Kishan", domain: "hotelkishan.vercel.app", url: "https://hotelkishan.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A dedicated hotel website build with a hospitality-first presentation.", kicker: "YOUR STAY, SIMPLIFIED", artTitle: "Arrive. Unwind. Feel at home.", artSub: "Hotel / Hospitality", art: "project-art--blue", keywords: "hotel kishan hospitality stay" },
+      { name: "Hotel Website — W", domain: "hotelw-three.vercel.app", url: "https://hotelw-three.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A hospitality website concept from the WebTea project collection.", kicker: "HOSPITALITY / WEB", artTitle: "A stay worth remembering.", artSub: "Hotel / Experience", art: "project-art--pink", keywords: "hotelw hospitality hotel" },
+      { name: "Hotel Website — One", domain: "hotel-one-ecru.vercel.app", url: "https://hotel-one-ecru.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A separate hotel website deployment exploring a calm, guest-first digital experience.", kicker: "HOTEL EXPERIENCE", artTitle: "Your next stop, beautifully planned.", artSub: "Hospitality", art: "project-art--cream", keywords: "hotel website hospitality" },
+      { name: "GoodPlaza", domain: "goodplaza.vercel.app", url: "https://goodplaza.vercel.app/", category: "business", categoryLabel: "Business / Digital", desc: "A standalone digital business build from the WebTea portfolio.", kicker: "GOOD IDEAS, ONLINE", artTitle: "A little easier to find.", artSub: "Digital / Business", art: "project-art--mint", keywords: "goodplaza business digital website" },
+      { name: "YSFC", domain: "ysfc.vercel.app", url: "https://ysfc.vercel.app/", category: "business", categoryLabel: "Business / Community", desc: "A dedicated digital experience for the YSFC project.", kicker: "COMMUNITY / ONLINE", artTitle: "Bring your people together.", artSub: "YSFC / Web", art: "project-art--blue", keywords: "ysfc web community sports" },
+      { name: "Digital Library", domain: "librarydigital.vercel.app", url: "https://librarydigital.vercel.app/", category: "product", categoryLabel: "Digital product / Education", desc: "A digital library experience built around discovering and organizing learning resources.", kicker: "LEARNING / ORGANIZED", artTitle: "More room for curiosity.", artSub: "Library / Education", art: "project-art--lilac", keywords: "digital library education learning books library management" },
+      { name: "Wedding Invite", domain: "weddinginvite-eight-tau.vercel.app", url: "https://weddinginvite-eight-tau.vercel.app/", category: "creative", categoryLabel: "Creative / Wedding", desc: "A digital invitation experience made to bring wedding details together beautifully.", kicker: "SAVE THE DATE", artTitle: "A little story before forever.", artSub: "Wedding / Invitation", art: "project-art--pink", keywords: "wedding invite invitation digital wedding website" },
+      { name: "Wedding Experience", domain: "wedding-kohl-tau.vercel.app", url: "https://wedding-kohl-tau.vercel.app/", category: "creative", categoryLabel: "Creative / Wedding", desc: "A wedding-oriented web build from the WebTea creative portfolio.", kicker: "MADE FOR THE MOMENT", artTitle: "The beginning of your always.", artSub: "Wedding / Editorial", art: "project-art--cream", keywords: "wedding event invitation" },
+      { name: "Vintage Dream Wedding", domain: "vintage-dream-wedding.vercel.app", url: "https://vintage-dream-wedding.vercel.app/", category: "creative", categoryLabel: "Creative / Wedding", desc: "A vintage-inspired wedding web experience with an editorial direction.", kicker: "VINTAGE DREAM", artTitle: "A celebration with a sense of story.", artSub: "Wedding / Editorial", art: "project-art--orange", keywords: "vintage dream wedding website luxury invitation" },
+      { name: "Vintage Dream", domain: "vintage-dream.vercel.app", url: "https://vintage-dream.vercel.app/", category: "creative", categoryLabel: "Creative / Wedding", desc: "A separate deployment for the Vintage Dream wedding experience.", kicker: "THE WEDDING EDIT", artTitle: "Details that stay with you.", artSub: "Wedding / Experience", art: "project-art--lilac", keywords: "vintage dream wedding" },
+      { name: "Parallax Shop", domain: "parallaxshop.vercel.app", url: "https://parallaxshop.vercel.app/", category: "creative", categoryLabel: "Creative / Fashion", desc: "An immersive fashion storefront concept with a strong visual identity.", kicker: "FASHION / FORM", artTitle: "Wear your own point of view.", artSub: "Fashion / Commerce", art: "project-art--dark", keywords: "parallax shop fashion clothing lala wears" },
+      { name: "Gift for Malkin", domain: "gift-for-malkin.vercel.app", url: "https://gift-for-malkin.vercel.app/", category: "creative", categoryLabel: "Creative / Personal", desc: "A personal gifting microsite built around a small, meaningful moment.", kicker: "MADE JUST FOR YOU", artTitle: "Some things deserve their own page.", artSub: "Personal / Gift", art: "project-art--pink", keywords: "gift for malkin personal website surprise" },
+      { name: "Gift Glow Try-On", domain: "gift-glow-try-on.vercel.app", url: "https://gift-glow-try-on.vercel.app/", category: "lab", categoryLabel: "Experiment / Visual tech", desc: "A visual try-on experiment exploring more interactive gift discovery.", kicker: "TRY SOMETHING NEW", artTitle: "See the possibility before the gift.", artSub: "Try-on / Prototype", art: "project-art--lilac", keywords: "gift glow try on visual technology gift" },
+      { name: "Upgrade", domain: "upgrade-snowy.vercel.app", url: "https://upgrade-snowy.vercel.app/", category: "lab", categoryLabel: "Experiment / Web", desc: "A standalone deployment from the WebTea build lab.", kicker: "IN PROGRESS / IN PLAY", artTitle: "There's always another level.", artSub: "Web / Experiment", art: "project-art--acid", keywords: "upgrade concept experiment web" },
+      { name: "Swarm", domain: "swarm-plum.vercel.app", url: "https://swarm-plum.vercel.app/", category: "lab", categoryLabel: "Experiment / Systems", desc: "An experimental web build exploring a different direction for digital systems.", kicker: "SYSTEMS IN MOTION", artTitle: "Many moving parts. One direction.", artSub: "Systems / Lab", art: "project-art--dark", keywords: "swarm digital systems experiment" },
+      { name: "EA — Lab Build", domain: "hagguuu.vercel.app", url: "https://hagguuu.vercel.app/", category: "lab", categoryLabel: "Experiment / Web", desc: "A small experimental deployment from the WebTea collection.", kicker: "WEBTEA BUILD LAB", artTitle: "A sketch with somewhere to go.", artSub: "Experiment / Prototype", art: "project-art--blue", keywords: "ea web experiment prototype" }
+    ];
+
+    const grid = document.getElementById("projectGrid");
+    const searchInput = document.getElementById("projectSearch");
+    const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+    const countNode = document.getElementById("resultCount");
+    const emptyState = document.getElementById("emptyState");
+    let activeFilter = "all";
+
+    function safeText(value) {
+      return String(value).replace(/[&<>"']/g, function (character) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character];
+      });
+    }
+
+    function createCard(project, index) {
+      const n = String(index + 1).padStart(2, "0");
+      return '<article class="project-card" style="animation-delay:' + Math.min(index * 25, 250) + 'ms">' +
+        '<div class="project-art ' + safeText(project.art) + '" aria-hidden="true">' +
+          '<div class="art-toolbar"><span class="art-dots"><i></i><i></i><i></i></span><span class="art-domain">' + safeText(project.domain) + '</span></div>' +
+          '<div class="art-main"><span class="art-kicker">' + safeText(project.kicker) + '</span><strong class="art-title">' + safeText(project.artTitle) + '</strong><span class="art-sub">' + safeText(project.artSub) + '</span></div>' +
+          '<span class="art-index">WT / ' + n + '</span>' +
+        '</div>' +
+        '<div class="project-info">' +
+          '<div class="project-meta"><span class="project-category">' + safeText(project.categoryLabel) + '</span><span class="project-number">' + n + ' / ' + String(projects.length).padStart(2, "0") + '</span></div>' +
+          '<h3>' + safeText(project.name) + '</h3>' +
+          '<p>' + safeText(project.desc) + '</p>' +
+          '<a class="project-link" href="' + safeText(project.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Open ' + safeText(project.name) + ' live website in a new tab"><span>Visit live site <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><small>' + safeText(project.domain) + '</small></a>' +
+        '</div>' +
+      '</article>';
+    }
+
+    function renderProjects() {
+      const query = searchInput.value.trim().toLowerCase();
+      const visible = projects.filter(function (project) {
+        const matchesFilter = activeFilter === "all" || project.category === activeFilter;
+        const searchText = [project.name, project.domain, project.categoryLabel, project.desc, project.keywords].join(" ").toLowerCase();
+        return matchesFilter && (!query || searchText.includes(query));
+      });
+      grid.innerHTML = visible.map(createCard).join("");
+      countNode.textContent = visible.length + (visible.length === 1 ? " project found" : " projects found") + " / " + projects.length + " destinations";
+      emptyState.style.display = visible.length ? "none" : "block";
+      grid.style.display = visible.length ? "grid" : "none";
+      filterButtons.forEach(function (button) {
+        button.setAttribute("aria-pressed", String(button.dataset.filter === activeFilter));
+      });
+    }
+
+    function updateFilterCounts() {
+      filterButtons.forEach(function (button) {
+        const filter = button.dataset.filter;
+        const amount = filter === "all" ? projects.length : projects.filter(function (project) { return project.category === filter; }).length;
+        const count = button.querySelector("span");
+        if (count) count.textContent = amount;
+      });
+    }
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        activeFilter = button.dataset.filter;
+        renderProjects();
+      });
+    });
+    searchInput.addEventListener("input", renderProjects);
+    document.getElementById("resetSearch").addEventListener("click", function () {
+      activeFilter = "all";
+      searchInput.value = "";
+      renderProjects();
+      searchInput.focus();
+    });
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+    const menuToggle = document.getElementById("menuToggle");
+    const primaryNav = document.getElementById("primaryNav");
+    menuToggle.addEventListener("click", function () {
+      const open = primaryNav.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    });
+    primaryNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        primaryNav.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+
+    updateFilterCounts();
+    renderProjects();
+  </script>
+</body>
+</html>
