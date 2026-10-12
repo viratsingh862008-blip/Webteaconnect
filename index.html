@@ -421,130 +421,55 @@
     .back-top { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: var(--pine); font: 10px var(--mono); text-transform: uppercase; }
     .back-top svg { width: 13px; height: 13px; }
 
-    /* Mobile-first responsive system: shared composition, progressively enhanced */
-    html { scroll-padding-top: 84px; }
-    body { overflow-x: clip; }
-    img, video, svg { max-width: 100%; }
-    .wrap { width: calc(100% - 32px); margin-inline: auto; }
-    .site-header { position: sticky; top: 0; z-index: 50; }
-    .nav { min-height: 68px; position: relative; gap: 12px; }
-    .brand { min-width: 0; gap: 8px; }
-    .brand-mark--logo { width: 43px; height: 34px; flex: 0 0 auto; }
-    .brand-name { font-size: 19px; }
-    .brand-sub { font-size: 8px; letter-spacing: .11em; }
-    .nav-cta { display: none; }
-    .menu-toggle { display: grid; place-items: center; flex: 0 0 auto; }
-    .nav-links { display: none; position: absolute; top: calc(100% + 1px); left: -1px; right: -1px; z-index: 60; padding: 12px 18px 18px; flex-direction: column; align-items: stretch; gap: 0; background: var(--cream); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 16px 16px; box-shadow: 0 16px 32px rgba(10,43,36,.09); }
-    .nav-links.is-open { display: flex; }
-    .nav-links a { padding: 14px 2px; border-bottom: 1px solid rgba(18,63,52,.09); }
-    .hero-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 20px; min-height: auto; padding-block: 52px 44px; }
-    .hero-copy { max-width: 100%; }
-    .hero h1 { max-width: 12ch; margin: 18px 0; font-size: clamp(44px, 12vw, 68px); line-height: .98; overflow-wrap: anywhere; }
-    .hero-intro { max-width: 58ch; font-size: 14px; line-height: 1.75; }
-    .hero-actions { gap: 10px; margin-top: 23px; }
-    .button { min-height: 46px; }
-    .hero-foot { gap: 10px; margin-top: 27px; font-size: 9px; letter-spacing: .04em; }
-    .hero-art { width: 100%; min-height: 300px; margin: 0; padding: 0 0 25px; grid-template-columns: 1.05fr .95fr; grid-template-rows: repeat(2,minmax(112px,1fr)); gap: 8px; transform: none; }
-    .hero-tile--large { min-height: 232px; }
-    .hero-tile--wide, .hero-tile--portrait { min-height: 112px; }
-    .hero-tile-label { left: 9px; right: 8px; bottom: 9px; gap: 4px; }
-    .hero-tile-label span { font-size: 7px; }
-    .hero-tile-label strong { font-size: 12px; }
-    .hero-art-note { left: 0; bottom: 0; font-size: 8px; }
-    .section { padding-block: 58px; }
-    .section-head { display: grid; grid-template-columns: minmax(0,1fr); gap: 14px; }
-    .section-head h2 { font-size: clamp(34px, 9vw, 48px); }
-    .section-intro { margin-top: 0; max-width: 56ch; }
-    .directory-topline { align-items: stretch; flex-direction: column; gap: 14px; }
-    .search-box { width: 100%; min-width: 0; }
-    .filter-list { display: flex; flex-wrap: wrap; gap: 7px; }
-    .filter-btn { min-height: 38px; padding: 9px 12px; }
-    .project-grid { grid-template-columns: minmax(0,1fr); gap: 14px; }
-    .project-card { min-width: 0; }
-    .project-preview { aspect-ratio: 16 / 10; }
-    .project-info { padding: 17px 16px 15px; }
-    .project-info h3 { font-size: 22px; }
-    .project-info p { min-height: 0; font-size: 12px; line-height: 1.65; }
-    .project-link { gap: 8px; }
-    .project-link small { display: inline; max-width: 55%; font-size: 8px; }
-    .manifesto-grid { grid-template-columns: minmax(0,1fr); gap: 26px; padding-block: 58px; }
-    .manifesto-side { position: static; }
-    .manifesto-side p { max-width: 56ch; }
-    .manifesto h2 { font-size: clamp(34px, 9vw, 48px); }
-    .capability { grid-template-columns: 32px minmax(0,1fr) 25px; gap: 10px; padding: 17px 0; }
-    .capability h3 { font-size: 18px; }
-    .contact { padding-block: 58px; }
-    .contact-box { grid-template-columns: minmax(0,1fr); align-items: start; gap: 25px; padding: 28px 22px; border-radius: 22px; }
-    .contact h2 { font-size: clamp(39px, 10vw, 52px); }
-    .contact-actions { min-width: 0; width: 100%; max-width: 360px; }
-    .footer-main { align-items: flex-start; flex-direction: column; gap: 16px; padding-block: 22px; }
-    .footer-links { gap: 12px 18px; }
-    .directory-note { font-size: 10px; }
-
-    @media (min-width: 560px) {
-      .wrap { width: calc(100% - 48px); }
-      .brand-mark--logo { width: 50px; height: 38px; }
-      .brand-name { font-size: 21px; }
-      .hero-grid { padding-block: 64px 54px; }
-      .hero h1 { font-size: clamp(56px, 8vw, 76px); }
-      .hero-art { min-height: 360px; grid-template-rows: repeat(2,minmax(145px,1fr)); gap: 10px; }
-      .hero-tile--large { min-height: 300px; }
-      .hero-tile--wide, .hero-tile--portrait { min-height: 145px; }
-      .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
-      .project-info { padding: 17px 15px 15px; }
-      .project-info h3 { font-size: 20px; }
-      .section-head { grid-template-columns: minmax(0,1fr) minmax(190px,.7fr); align-items: end; }
-      .contact-box { padding: 36px; }
+    /* Mobile-first horizontal project carousel */
+    .carousel-toolbar { display:flex; align-items:center; justify-content:space-between; gap:14px; margin:18px 0 13px; }
+    .carousel-hint { margin:0; color:var(--muted); font:10px/1.5 var(--mono); letter-spacing:.035em; }
+    .carousel-hint span { color:var(--pine-mid); padding-inline:3px; }
+    .carousel-actions { display:flex; gap:8px; flex:0 0 auto; }
+    .carousel-arrow { display:grid; place-items:center; width:42px; height:42px; padding:0; border:1px solid rgba(18,63,52,.2); border-radius:50%; color:var(--pine); background:rgba(255,253,245,.8); cursor:pointer; transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease; }
+    .carousel-arrow:hover:not(:disabled) { background:var(--pine); color:var(--paper); border-color:var(--pine); transform:translateY(-1px); }
+    .carousel-arrow:disabled { opacity:.32; cursor:not-allowed; }
+    .carousel-arrow svg { width:19px; height:19px; }
+    .project-grid { display:flex; align-items:stretch; gap:14px; overflow-x:auto; overflow-y:hidden; padding:2px 2px 16px; margin-inline:-2px; scroll-snap-type:x mandatory; scroll-padding-inline:2px; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:rgba(18,63,52,.35) rgba(18,63,52,.07); }
+    .project-grid::-webkit-scrollbar { height:7px; }
+    .project-grid::-webkit-scrollbar-track { background:rgba(18,63,52,.07); border-radius:20px; }
+    .project-grid::-webkit-scrollbar-thumb { background:rgba(18,63,52,.32); border-radius:20px; }
+    .project-card { flex:0 0 min(86%,360px); width:min(86%,360px); min-width:0; scroll-snap-align:start; scroll-snap-stop:normal; display:flex; flex-direction:column; overflow:hidden; border:1px solid rgba(18,63,52,.12); border-radius:var(--radius); background:rgba(255,253,245,.83); transition:box-shadow .25s ease,border-color .25s ease; animation:cardIn .4s both; }
+    .project-card:hover { box-shadow:var(--shadow); border-color:rgba(18,63,52,.25); }
+    @keyframes cardIn { from { opacity:0; transform:translateY(9px); } to { opacity:1; transform:translateY(0); } }
+    .project-preview { position:relative; display:block; aspect-ratio:16 / 10; min-height:0; overflow:hidden; background:#173e35; isolation:isolate; }
+    .project-preview-media { display:block; width:100%; height:100%; object-fit:cover; object-position:center; transition:transform .55s cubic-bezier(.2,.7,.2,1); }
+    .project-card:hover .project-preview-media { transform:scale(1.035); }
+    .project-preview::after { content:""; position:absolute; inset:35% 0 0; background:linear-gradient(180deg,transparent,rgba(5,18,14,.56)); pointer-events:none; }
+    .preview-tag { position:absolute; z-index:1; left:13px; top:13px; padding:7px 9px; background:rgba(10,28,23,.72); border:1px solid rgba(255,255,255,.22); color:#fff; font:8px var(--mono); letter-spacing:.1em; text-transform:uppercase; backdrop-filter:blur(8px); }
+    .preview-index { position:absolute; z-index:1; right:13px; bottom:12px; color:#fff; font:10px var(--mono); letter-spacing:.1em; text-shadow:0 1px 12px rgba(0,0,0,.5); }
+    .project-card:nth-child(4n + 1) .project-preview { background:#173e35; }
+    .project-info { display:flex; flex:1; flex-direction:column; padding:17px 16px 15px; }
+    .project-meta { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }
+    .project-category { color:#567062; font:9px var(--mono); letter-spacing:.09em; text-transform:uppercase; }
+    .project-number { color:#9aa399; font:9px var(--mono); }
+    .project-info h3 { margin:0; font:600 22px/1.1 var(--display); letter-spacing:-.055em; }
+    .project-info p { min-height:0; margin:10px 0 17px; color:var(--muted); font-size:12px; line-height:1.65; }
+    .project-link { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:13px; border-top:1px solid rgba(18,63,52,.12); text-decoration:none; font-size:11px; font-weight:700; }
+    .project-link span { display:inline-flex; align-items:center; gap:7px; }
+    .project-link svg { width:13px; height:13px; transition:transform .2s ease; }
+    .project-link:hover svg { transform:translate(3px,-2px); }
+    .project-link small { max-width:55%; overflow:hidden; color:#7e897f; font:8px var(--mono); white-space:nowrap; text-overflow:ellipsis; }
+    .carousel-progress { height:3px; margin-top:2px; overflow:hidden; border-radius:99px; background:rgba(18,63,52,.09); }
+    .carousel-progress span { display:block; width:0; height:100%; border-radius:inherit; background:var(--pine-mid); transition:width .12s linear; }
+    .project-grid:focus-visible { outline:2px solid var(--pine-mid); outline-offset:4px; }
+    @media (min-width:560px) {
+      .project-grid { gap:16px; }
+      .project-card { flex-basis:min(48%,390px); width:min(48%,390px); }
+      .project-info { padding:19px 18px 17px; }
     }
-
-    @media (min-width: 800px) {
-      .wrap { width: calc(100% - 64px); }
-      .site-header { position: relative; }
-      .nav { min-height: 78px; gap: 20px; }
-      .brand { gap: 11px; }
-      .brand-mark--logo { width: 58px; height: 42px; }
-      .nav-links { display: flex; position: static; flex-direction: row; align-items: center; gap: clamp(16px,2vw,30px); padding: 0; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
-      .nav-links a { padding: 10px 0; border: 0; }
-      .nav-cta { display: inline-flex; }
-      .menu-toggle { display: none; }
-      .hero-grid { grid-template-columns: minmax(0,1.02fr) minmax(300px,.98fr); gap: 28px; min-height: 540px; padding-block: 70px; }
-      .hero h1 { font-size: clamp(56px,6.3vw,82px); }
-      .hero-art { min-height: 390px; grid-template-rows: repeat(2,minmax(160px,1fr)); }
-      .hero-tile--large { min-height: 330px; }
-      .hero-tile--wide, .hero-tile--portrait { min-height: 160px; }
-      .section { padding-block: 78px; }
-      .section-head { grid-template-columns: minmax(0,1fr) minmax(260px,.7fr); }
-      .project-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
-      .project-info { padding: 19px 19px 17px; }
-      .project-info h3 { font-size: 22px; }
-      .manifesto-grid { grid-template-columns: .78fr 1.22fr; gap: 35px; padding-block: 78px; }
-      .manifesto-side { position: sticky; top: 30px; }
-      .contact { padding-block: 78px; }
-      .contact-box { grid-template-columns: minmax(0,1fr) auto; align-items: end; gap: 32px; padding: 42px; }
-      .contact-actions { width: auto; }
-      .footer-main { align-items: center; flex-direction: row; }
+    @media (min-width:800px) {
+      .project-grid { gap:18px; padding-bottom:18px; }
+      .project-card { flex-basis:min(43%,420px); width:min(43%,420px); }
+      .carousel-toolbar { margin-top:22px; }
     }
-
-    @media (min-width: 1100px) {
-      .wrap { width: min(1280px, calc(100% - 80px)); }
-      .hero-grid { grid-template-columns: minmax(0,1.05fr) minmax(360px,.95fr); gap: 42px; min-height: 570px; }
-      .hero h1 { font-size: clamp(68px,6.1vw,88px); }
-      .hero-art { min-height: 440px; grid-template-rows: repeat(2,minmax(190px,1fr)); gap: 12px; padding: 14px 0 34px 14px; }
-      .hero-tile--large { min-height: 350px; }
-      .hero-tile--wide, .hero-tile--portrait { min-height: 190px; }
-      .project-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
-      .project-info { padding: 19px 19px 17px; }
-      .manifesto-grid { gap: 65px; padding-block: 86px; }
-      .contact { padding-block: 95px 100px; }
-      .contact-box { padding: 55px; }
-    }
-
-    @media (min-width: 1450px) {
-      .wrap { width: min(1280px, calc(100% - 80px)); }
-      .project-grid { gap: 20px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    @media (min-width:1100px) {
+      .project-card { flex-basis:calc((100% - 36px) / 3); width:calc((100% - 36px) / 3); }
     }
   </style>
   <script type="application/ld+json">
@@ -645,7 +570,15 @@
           <button type="button" class="filter-btn" data-filter="creative" aria-pressed="false">Creative &amp; events <span>0</span></button>
           <button type="button" class="filter-btn" data-filter="lab" aria-pressed="false">Experiments <span>0</span></button>
         </div>
-        <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+        <div class="carousel-toolbar" aria-label="Project carousel controls">
+          <p class="carousel-hint"><span aria-hidden="true">←</span> Swipe or scroll to explore <span aria-hidden="true">→</span></p>
+          <div class="carousel-actions">
+            <button type="button" class="carousel-arrow" id="projectPrev" aria-label="Scroll to previous projects"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M16 10H4m0 0 5-5m-5 5 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="carousel-arrow" id="projectNext" aria-label="Scroll to next projects"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+        <div class="project-grid" id="projectGrid" aria-live="polite" aria-label="Scrollable project carousel" tabindex="0"></div>
+        <div class="carousel-progress" aria-hidden="true"><span id="carouselProgress"></span></div>
         <div class="empty-state" id="emptyState">
           <strong>No matches in this brew.</strong>
           <p>Try another name or switch back to all work.</p>
@@ -784,11 +717,36 @@
       grid.innerHTML = visible.map(createCard).join("");
       countNode.textContent = visible.length + (visible.length === 1 ? " project found" : " projects found") + " / " + projects.length + " destinations";
       emptyState.style.display = visible.length ? "none" : "block";
-      grid.style.display = visible.length ? "grid" : "none";
+      grid.style.display = visible.length ? "flex" : "none";
+      grid.scrollLeft = 0;
       filterButtons.forEach(function (button) {
         button.setAttribute("aria-pressed", String(button.dataset.filter === activeFilter));
       });
+      updateCarouselControls();
     }
+
+    const prevProjectButton = document.getElementById("projectPrev");
+    const nextProjectButton = document.getElementById("projectNext");
+    const carouselProgress = document.getElementById("carouselProgress");
+
+    function updateCarouselControls() {
+      const maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth);
+      prevProjectButton.disabled = grid.scrollLeft <= 2;
+      nextProjectButton.disabled = maxScroll <= 2 || grid.scrollLeft >= maxScroll - 2;
+      carouselProgress.style.width = maxScroll <= 2 ? "100%" : Math.min(100, Math.max(0, grid.scrollLeft / maxScroll * 100)) + "%";
+    }
+
+    function scrollProjects(direction) {
+      const card = grid.querySelector(".project-card");
+      if (!card) return;
+      const amount = card.getBoundingClientRect().width + parseFloat(getComputedStyle(grid).gap || "0");
+      grid.scrollBy({ left: direction * amount, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }
+
+    prevProjectButton.addEventListener("click", function () { scrollProjects(-1); });
+    nextProjectButton.addEventListener("click", function () { scrollProjects(1); });
+    grid.addEventListener("scroll", updateCarouselControls, { passive: true });
+    window.addEventListener("resize", updateCarouselControls, { passive: true });
 
     function updateFilterCounts() {
       filterButtons.forEach(function (button) {
