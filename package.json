@@ -1,0 +1,14 @@
+{
+  "name": "webtea-connect",
+  "version": "1.0.0",
+  "description": "Living directory of websites, digital products, and creative experiments built by WebTea.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Build verified')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

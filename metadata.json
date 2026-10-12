@@ -1,0 +1,8 @@
+{
+  "name": "WebTea Connect — Good ideas, connected.",
+  "description": "WebTea Connect is the living directory of websites, digital products, and creative experiments built by WebTea. Explore the work and open every live project.",
+  "requestFramePermissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
