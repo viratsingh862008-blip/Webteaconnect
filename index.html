@@ -231,93 +231,22 @@
       text-transform: uppercase;
     }
     .hero-foot .separation { width: 4px; height: 4px; background: var(--coral); border-radius: 50%; }
-    .hero-art { min-height: 425px; position: relative; display: grid; place-items: center; }
-    .art-grid {
-      position: absolute;
-      width: min(100%, 455px);
-      height: 360px;
-      opacity: .2;
-      background-image: linear-gradient(rgba(213,247,107,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(213,247,107,.25) 1px, transparent 1px);
-      background-size: 30px 30px;
-      mask-image: radial-gradient(ellipse at center, black 12%, transparent 72%);
-    }
-    .orbit {
-      position: absolute;
-      width: 385px;
-      height: 385px;
-      border: 1px solid rgba(213,247,107,.25);
-      border-radius: 50%;
-      transform: rotate(-25deg) scaleY(.72);
-    }
-    .orbit::before, .orbit::after {
-      content: "";
-      position: absolute;
-      inset: 31px;
-      border: 1px dashed rgba(213,247,107,.24);
-      border-radius: 50%;
-    }
-    .orbit::after { inset: 68px; border-style: solid; opacity: .6; }
-    .connect-panel {
-      width: min(100%, 355px);
-      position: relative;
-      padding: 20px;
-      transform: rotate(3deg);
-      border-radius: 20px;
-      background: var(--paper);
-      color: var(--pine);
-      box-shadow: 0 35px 75px rgba(2, 20, 16, .34);
-      animation: float 6s ease-in-out infinite;
-    }
-    .panel-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 15px; border-bottom: 1px solid #e7e8dc; }
-    .panel-label { font: 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-    .live-dot { display: inline-flex; align-items: center; gap: 6px; color: #47785e; font: 9px var(--mono); text-transform: uppercase; letter-spacing: .05em; }
-    .live-dot::before { content: ""; width: 6px; height: 6px; background: #6ac47a; border-radius: 50%; box-shadow: 0 0 0 3px #e2f2df; }
-    .panel-title { margin: 21px 0 6px; font: 600 28px/.98 var(--display); letter-spacing: -.06em; }
-    .panel-caption { color: #68796e; font-size: 11px; line-height: 1.5; }
-    .panel-stack { display: grid; gap: 8px; margin-top: 20px; }
-    .panel-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 11px;
-      border: 1px solid #e7e8dc;
-      border-radius: 10px;
-      font-size: 11px;
-      font-weight: 700;
-      background: #fffef9;
-    }
-    .panel-link span:first-child {
-      display: grid;
-      place-items: center;
-      width: 27px;
-      height: 27px;
-      border-radius: 8px;
-      background: var(--tile, #d5f76b);
-      color: var(--pine);
-      font: 700 10px var(--mono);
-    }
-    .panel-link .panel-arrow { margin-left: auto; font-size: 17px; font-weight: 400; }
-    .floating-badge {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 14px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 999px;
-      background: rgba(19, 63, 52, .75);
-      backdrop-filter: blur(12px);
-      color: var(--paper);
-      font: 10px var(--mono);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      box-shadow: 0 15px 35px rgba(0,0,0,.15);
-    }
-    .floating-badge svg { width: 16px; height: 16px; color: var(--acid); }
-    .floating-badge--one { top: 54px; right: -3px; transform: rotate(7deg); }
-    .floating-badge--two { bottom: 40px; left: -5px; transform: rotate(-6deg); }
-    @keyframes float { 0%,100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-9px) rotate(2deg); } }
-
+    .hero-art { min-height: 440px; position: relative; display: grid; grid-template-columns: 1.08fr .92fr; grid-template-rows: 1fr 1fr; gap: 12px; padding: 14px 0 34px 14px; }
+    .hero-tile { position: relative; display: block; min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.16); background: #173e35; text-decoration: none; isolation: isolate; }
+    .hero-tile img { width: 100%; height: 100%; min-height: 0; object-fit: cover; display: block; transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+    .hero-tile:hover img { transform: scale(1.045); }
+    .hero-tile::after { content: ""; position: absolute; inset: 25% 0 0; z-index: 0; background: linear-gradient(180deg, transparent, rgba(5,18,14,.82)); pointer-events: none; }
+    .hero-tile--large { grid-row: 1 / span 2; min-height: 350px; }
+    .hero-tile--wide { min-height: 190px; }
+    .hero-tile--portrait { min-height: 190px; }
+    .hero-tile--portrait img { object-position: center 24%; }
+    .hero-tile-label { position: absolute; z-index: 1; left: 15px; right: 12px; bottom: 14px; display: grid; gap: 5px; color: #fff; }
+    .hero-tile-label span { font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.72); }
+    .hero-tile-label strong { font: 600 16px/1.15 var(--display); letter-spacing: -.035em; }
+    .hero-art-note { position: absolute; left: 14px; bottom: 0; display: flex; align-items: center; gap: 9px; color: #a9c0b3; font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .hero-art-note-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acid); }
+    @media (max-width: 960px) { .hero-art { min-height: 380px; } .hero-tile--large { min-height: 300px; } }
+    @media (max-width: 600px) { .hero-art { min-height: 330px; padding: 0 0 30px; gap: 8px; } .hero-tile--large { min-height: 275px; } .hero-tile--wide, .hero-tile--portrait { min-height: 130px; } .hero-tile-label { left: 10px; bottom: 10px; } .hero-tile-label strong { font-size: 12px; } .hero-tile-label span { font-size: 7px; } .hero-art-note { left: 0; } }
     .ticker { overflow: hidden; background: var(--acid); color: var(--pine-deep); border-bottom: 1px solid rgba(18,63,52,.15); }
     .ticker-track {
       display: flex;
@@ -391,65 +320,13 @@
     }
     .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(18,63,52,.25); }
     @keyframes cardIn { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
-    .project-art {
-      --tone: #d5f76b;
-      --tone-ink: #123f34;
-      position: relative;
-      isolation: isolate;
-      min-height: 183px;
-      overflow: hidden;
-      padding: 13px;
-      background: var(--tone);
-      color: var(--tone-ink);
-    }
-    .project-art::before {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 190px;
-      right: -54px;
-      bottom: -88px;
-      z-index: -1;
-      border: 1px solid currentColor;
-      border-radius: 50%;
-      opacity: .20;
-      box-shadow: 0 0 0 20px transparent, 0 0 0 42px currentColor;
-    }
-    .project-art::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      width: 110px;
-      height: 110px;
-      right: 26px;
-      top: 43px;
-      border: 1px solid currentColor;
-      border-radius: 36% 64% 58% 42%;
-      opacity: .20;
-      transform: rotate(28deg);
-    }
-    .project-art--dark { background: #173e35; color: #f5f3e9; --tone: #173e35; --tone-ink: #f5f3e9; }
-    .project-art--orange { background: #f1a47d; --tone: #f1a47d; --tone-ink: #35231c; }
-    .project-art--blue { background: #bfd8dc; --tone: #bfd8dc; --tone-ink: #153f43; }
-    .project-art--lilac { background: #d7c9f3; --tone: #d7c9f3; --tone-ink: #362b53; }
-    .project-art--pink { background: #f6c6ca; --tone: #f6c6ca; --tone-ink: #562b35; }
-    .project-art--cream { background: #ece6d2; --tone: #ece6d2; --tone-ink: #263a30; }
-    .project-art--acid { background: #d5f76b; --tone: #d5f76b; --tone-ink: #123f34; }
-    .project-art--mint { background: #bfe5d0; --tone: #bfe5d0; --tone-ink: #123f34; }
-    .project-art--red { background: #f47c60; --tone: #f47c60; --tone-ink: #3c1f1a; }
-    .art-toolbar { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
-    .art-dots { display: inline-flex; gap: 4px; }
-    .art-dots i { width: 5px; height: 5px; background: currentColor; opacity: .55; border-radius: 50%; }
-    .art-domain { max-width: 64%; overflow: hidden; color: currentColor; opacity: .68; font: 8px var(--mono); white-space: nowrap; text-overflow: ellipsis; }
-    .art-main { position: relative; z-index: 1; padding: 23px 9px 10px; max-width: 82%; }
-    .art-kicker { display: block; margin-bottom: 9px; font: 8px var(--mono); letter-spacing: .13em; text-transform: uppercase; opacity: .72; }
-    .art-title { display: block; font: 600 clamp(21px, 2.2vw, 28px)/.98 var(--display); letter-spacing: -.075em; max-width: 255px; }
-    .art-sub { display: inline-flex; margin-top: 15px; padding: 6px 9px; border: 1px solid currentColor; border-radius: 999px; font: 8px var(--mono); letter-spacing: .07em; text-transform: uppercase; opacity: .8; }
-    .art-index { position: absolute; z-index: 1; right: 13px; bottom: 13px; font: 8px var(--mono); opacity: .65; letter-spacing: .08em; }
-    .project-art--lilac::after { border-radius: 50%; width: 125px; height: 125px; right: -5px; top: 50px; border-width: 16px; }
-    .project-art--blue::before { width: 125px; height: 125px; border-radius: 8px; right: 13px; bottom: -65px; transform: rotate(25deg); }
-    .project-art--pink::after { border-radius: 50% 50% 6px 50%; transform: rotate(-20deg); }
-    .project-art--red::before { border-width: 20px; right: -20px; bottom: -95px; }
+    .project-preview { position: relative; aspect-ratio: 16 / 10; min-height: 0; overflow: hidden; background: #173e35; isolation: isolate; }
+    .project-preview-media { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+    .project-card:hover .project-preview-media { transform: scale(1.035); }
+    .project-preview::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(180deg, transparent, rgba(5,18,14,.56)); pointer-events: none; }
+    .preview-tag { position: absolute; z-index: 1; left: 13px; top: 13px; padding: 7px 9px; background: rgba(10,28,23,.72); border: 1px solid rgba(255,255,255,.22); color: #fff; font: 8px var(--mono); letter-spacing: .1em; text-transform: uppercase; backdrop-filter: blur(8px); }
+    .preview-index { position: absolute; z-index: 1; right: 13px; bottom: 12px; color: #fff; font: 10px var(--mono); letter-spacing: .1em; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+    .project-card:nth-child(4n + 1) .project-preview { background: #173e35; }
     .project-info { display: flex; flex: 1; flex-direction: column; padding: 19px 19px 17px; }
     .project-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
     .project-category { color: #567062; font: 9px var(--mono); letter-spacing: .09em; text-transform: uppercase; }
@@ -674,30 +551,20 @@
             <span>Strategy</span><i class="separation"></i><span>Design</span><i class="separation"></i><span>Development</span><i class="separation"></i><span>Experiments</span>
           </div>
         </div>
-        <div class="hero-art" aria-label="Abstract illustration of connected WebTea projects">
-          <div class="art-grid"></div>
-          <div class="orbit"></div>
-          <div class="connect-panel">
-            <div class="panel-top">
-              <span class="panel-label">WebTea / Connect</span>
-              <span class="live-dot">Project index</span>
-            </div>
-            <div class="panel-title">Everything we make,<br>in one place.</div>
-            <div class="panel-caption">A growing collection of ideas turned into real digital experiences.</div>
-            <div class="panel-stack">
-              <div class="panel-link"><span style="--tile:#d5f76b">01</span> Business websites <span class="panel-arrow">↗</span></div>
-              <div class="panel-link"><span style="--tile:#f1a47d">02</span> WebTea products <span class="panel-arrow">↗</span></div>
-              <div class="panel-link"><span style="--tile:#d7c9f3">03</span> Creative builds <span class="panel-arrow">↗</span></div>
-            </div>
-          </div>
-          <div class="floating-badge floating-badge--one">
-            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 12 7.8l5.5 2.2-5.5 2.2-2 5.3-2-5.3-5.5-2.2 5.5-2.2 2-5.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-            Ideas into interfaces
-          </div>
-          <div class="floating-badge floating-badge--two">
-            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Built to be clicked
-          </div>
+        <div class="hero-art" aria-label="Selected WebTea project imagery">
+          <a class="hero-tile hero-tile--large" href="https://parallaxshop.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View Parallax Shop">
+            <img src="https://parallaxshop.vercel.app/assets/as-polo-ivory-BJ52yJfe.jpg" alt="Parallax Shop fashion collection" loading="eager" decoding="async">
+            <span class="hero-tile-label"><span>01 / Fashion</span><strong>Parallax Shop ↗</strong></span>
+          </a>
+          <a class="hero-tile hero-tile--wide" href="https://webtea-betav1.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View WebTea Beta">
+            <img src="https://res.cloudinary.com/roq8nakt/image/upload/f_auto,q_auto:best,w_1536/webtea-betav1/triple-crown-restaurant-original.jpg" alt="The Triple Crown restaurant interior" loading="eager" decoding="async">
+            <span class="hero-tile-label"><span>02 / Hospitality</span><strong>WebTea Beta ↗</strong></span>
+          </a>
+          <a class="hero-tile hero-tile--portrait" href="https://doctor-mugdamohan.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View Dr. Mugdha Mohan website">
+            <img src="https://bigohealth-images.s3.amazonaws.com/Doctor_bettiah/dr-mughda-mohan-bettiah.jpeg" alt="Dr. Mugdha Mohan" loading="eager" decoding="async">
+            <span class="hero-tile-label"><span>03 / Healthcare</span><strong>Dr. Mugdha Mohan ↗</strong></span>
+          </a>
+          <div class="hero-art-note"><span class="hero-art-note-dot"></span>Selected work · Live destinations</div>
         </div>
       </div>
     </section>
@@ -716,7 +583,7 @@
             <span class="eyebrow">The project directory</span>
             <h2>Made for the real world.<br>Built to be clicked.</h2>
           </div>
-          <p class="section-intro">Explore the live destinations in the WebTea universe. Search by name, narrow by category, or open any project to experience it for yourself.</p>
+          <p class="section-intro">Fifteen live builds across commerce, hospitality, healthcare, events, and creative experiments. Search by name, filter the work, then open the real site.</p>
         </div>
         <div class="directory-topline">
           <span class="result-count" id="resultCount" aria-live="polite">Loading project directory…</span>
@@ -726,7 +593,7 @@
           </label>
         </div>
         <div class="filters" id="projectFilters" role="group" aria-label="Filter projects">
-          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All work <span>18</span></button>
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All work <span>15</span></button>
           <button type="button" class="filter-btn" data-filter="business" aria-pressed="false">Business websites <span>0</span></button>
           <button type="button" class="filter-btn" data-filter="product" aria-pressed="false">WebTea products <span>0</span></button>
           <button type="button" class="filter-btn" data-filter="creative" aria-pressed="false">Creative &amp; events <span>0</span></button>
@@ -811,24 +678,21 @@
 
   <script>
     const projects = [
-      { name: "WebTea Studio", domain: "webxtea.vercel.app", url: "https://webxtea.vercel.app/", category: "product", categoryLabel: "WebTea / Studio", desc: "The studio's front door for brand-led websites, digital experiences, and creative technology.", kicker: "DIGITAL STUDIO", artTitle: "Make the web feel different.", artSub: "Design · Build · Grow", art: "project-art--acid", keywords: "webtea agency studio web design development" },
-      { name: "WebTea Beta", domain: "webtea-betav1.vercel.app", url: "https://webtea-betav1.vercel.app/", category: "product", categoryLabel: "WebTea / Studio", desc: "An earlier live iteration of the WebTea studio experience.", kicker: "STUDIO / BETA", artTitle: "Good ideas deserve a place to grow.", artSub: "WebTea / Beta", art: "project-art--orange", keywords: "webtea beta agency site" },
-      { name: "Dr. Mugdha Mohan", domain: "doctor-mugdamohan.vercel.app", url: "https://doctor-mugdamohan.vercel.app/", category: "business", categoryLabel: "Business / Healthcare", desc: "A dermatologist website concept with local discovery, service information, and WhatsApp-first enquiries.", kicker: "SKIN CARE CENTRE", artTitle: "Care that starts with confidence.", artSub: "Healthcare / Local SEO", art: "project-art--mint", keywords: "doctor mugdha mohan dermatologist skin clinic bettiah" },
-      { name: "RP Events", domain: "rpevent.in", url: "https://rpevent.in/", category: "business", categoryLabel: "Business / Events", desc: "The digital home for an event company creating celebrations and memorable experiences.", kicker: "EVENTS & CELEBRATIONS", artTitle: "Your moments. Thoughtfully made.", artSub: "Events / Weddings", art: "project-art--pink", keywords: "rp events muzaffarpur wedding event planner" },
-      { name: "RP Events — Alternate Build", domain: "rpevents-one.vercel.app", url: "https://rpevents-one.vercel.app/", category: "creative", categoryLabel: "Creative / Events", desc: "A separate live build in the RP Events project family.", kicker: "CELEBRATE WELL", artTitle: "Bring the whole moment together.", artSub: "RP Events", art: "project-art--orange", keywords: "rp events alternate deployment" },
-      { name: "RP Events Connector", domain: "connector-rp-events.vercel.app", url: "https://connector-rp-events.vercel.app/", category: "product", categoryLabel: "Web / Event tools", desc: "A connected companion experience built around the RP Events ecosystem.", kicker: "EVENT OPERATIONS", artTitle: "Keep the moving parts connected.", artSub: "Tools / Events", art: "project-art--dark", keywords: "rp events connector booking system" },
-      { name: "Richa Furniture", domain: "richa-furniture-alpha.vercel.app", url: "https://richa-furniture-alpha.vercel.app/", category: "business", categoryLabel: "Business / Retail", desc: "A product-led furniture website concept designed to make a local business easier to explore online.", kicker: "FURNITURE & LIVING", artTitle: "Make room for better living.", artSub: "Retail / Catalogue", art: "project-art--cream", keywords: "richa furniture sofa interior showroom" },
-      { name: "Easy PZ", domain: "easypz.vercel.app", url: "https://easypz.vercel.app/", category: "business", categoryLabel: "Business / Sports retail", desc: "A digital storefront concept for a local sports retailer and its product catalogue.", kicker: "SPORTS CULTURE", artTitle: "Gear up. Get out there.", artSub: "Sports / Retail", art: "project-art--acid", keywords: "easy pz sports shop wholesale football cricket" },
-      { name: "Easy PZ", domain: "easy-pz.vercel.app", url: "https://easy-pz.vercel.app/", category: "business", categoryLabel: "Business / Sports retail", desc: "A second deployed version of the Easy PZ experience.", kicker: "SPORTS STORE", artTitle: "Made for the game.", artSub: "Easy PZ", art: "project-art--red", keywords: "easy pz alternate build sports" },
-      { name: "GymBTH", domain: "gymbth.vercel.app", url: "https://gymbth.vercel.app/", category: "business", categoryLabel: "Business / Fitness", desc: "A fitness-focused digital experience for a gym brand.", kicker: "FITNESS / EVERY DAY", artTitle: "Show up for your next level.", artSub: "Fitness / Community", art: "project-art--dark", keywords: "gymbth gym fitness workout" },
-      { name: "Kingdom Gym", domain: "kingdomgym-mu.vercel.app", url: "https://kingdomgym-mu.vercel.app/", category: "business", categoryLabel: "Business / Fitness", desc: "A separate gym website build focused on fitness, training, and brand presence.", kicker: "YOUR TRAINING SPACE", artTitle: "Earn your strength.", artSub: "Kingdom Gym", art: "project-art--red", keywords: "kingdom gym training fitness" },
-      { name: "Sports Arena", domain: "hotel-bhola-inn.vercel.app", url: "https://hotel-bhola-inn.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A hospitality website build for a hotel-branded digital experience.", kicker: "STAY A LITTLE BETTER", artTitle: "A warm welcome, every time.", artSub: "Hospitality / Hotel", art: "project-art--cream", keywords: "hotel bhola inn stay hospitality booking" },
-      { name: "Hotel Kishan", domain: "hotelkishan.vercel.app", url: "https://hotelkishan.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A dedicated hotel website build with a hospitality-first presentation.", kicker: "YOUR STAY, SIMPLIFIED", artTitle: "Arrive. Unwind. Feel at home.", artSub: "Hotel / Hospitality", art: "project-art--blue", keywords: "hotel kishan hospitality stay" },
-      { name: "Hotel Website — W", domain: "hotelw-three.vercel.app", url: "https://hotelw-three.vercel.app/", category: "business", categoryLabel: "Business / Hospitality", desc: "A hospitality website concept from the WebTea project collection.", kicker: "HOSPITALITY / WEB", artTitle: "A stay worth remembering.", artSub: "Hotel / Experience", art: "project-art--pink", keywords: "hotelw hospitality hotel" },
-      { name: "GoodPlaza", domain: "goodplaza.vercel.app", url: "https://goodplaza.vercel.app/", category: "business", categoryLabel: "Business / Digital", desc: "A standalone digital business build from the WebTea portfolio.", kicker: "GOOD IDEAS, ONLINE", artTitle: "A little easier to find.", artSub: "Digital / Business", art: "project-art--mint", keywords: "goodplaza business digital website" },
-      { name: "YSFC", domain: "ysfc.vercel.app", url: "https://ysfc.vercel.app/", category: "business", categoryLabel: "Business / Community", desc: "A dedicated digital experience for the YSFC project.", kicker: "COMMUNITY / ONLINE", artTitle: "Bring your people together.", artSub: "YSFC / Web", art: "project-art--blue", keywords: "ysfc web community sports" },
-      { name: "Vintage Dream Wedding", domain: "vintage-dream-wedding.vercel.app", url: "https://vintage-dream-wedding.vercel.app/", category: "creative", categoryLabel: "Creative / Wedding", desc: "A vintage-inspired wedding web experience with an editorial direction.", kicker: "VINTAGE DREAM", artTitle: "A celebration with a sense of story.", artSub: "Wedding / Editorial", art: "project-art--orange", keywords: "vintage dream wedding website luxury invitation" },
-      { name: "Parallax Shop", domain: "parallaxshop.vercel.app", url: "https://parallaxshop.vercel.app/", category: "creative", categoryLabel: "Creative / Fashion", desc: "An immersive fashion storefront concept with a strong visual identity.", kicker: "FASHION / FORM", artTitle: "Wear your own point of view.", artSub: "Fashion / Commerce", art: "project-art--dark", keywords: "parallax shop fashion clothing lala wears" }
+      {"name":"Parallax Shop","domain":"parallaxshop.vercel.app","url":"https://parallaxshop.vercel.app/","category":"creative","categoryLabel":"Fashion / Commerce","desc":"An immersive fashion storefront built around the Parallax identity, product photography, and limited drops.","keywords":"parallax shop fashion clothing apparel commerce","previewImage":"https://parallaxshop.vercel.app/assets/as-polo-ivory-BJ52yJfe.jpg","previewAlt":"Parallax ivory polo hero product image"},
+      {"name":"Easy PZ","domain":"easypz.vercel.app","url":"https://easypz.vercel.app/","category":"business","categoryLabel":"Business / Sports retail","desc":"A digital storefront concept for Easy PZ and its sports-retail identity.","keywords":"easy pz sports shop wholesale football cricket","previewImage":"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop","previewAlt":"Live Easy PZ homepage image"},
+      {"name":"WebTea Beta","domain":"webtea-betav1.vercel.app","url":"https://webtea-betav1.vercel.app/","category":"product","categoryLabel":"Hospitality / Web","desc":"A hospitality experience for The Triple Crown, bringing rooms, dining, and venue storytelling together.","keywords":"webtea beta triple crown hotel restaurant hospitality","previewImage":"https://res.cloudinary.com/roq8nakt/image/upload/f_auto,q_auto:best,w_1920/webtea-betav1/triple-crown-room-original.jpg","previewAlt":"The Triple Crown guest room hero image"},
+      {"name":"Good Plaza","domain":"goodplaza.vercel.app","url":"https://goodplaza.vercel.app/","category":"business","categoryLabel":"Food / Hospitality","desc":"A restaurant website concept featuring Food Plaza's menu, food photography, and local business details.","keywords":"good plaza food plaza bettiah restaurant menu","previewImage":"https://content3.jdmagicbox.com/comp/bettiah/l4/9999p6254.6254.220812201639.l2l4/catalogue/-17366wy72r.jpg","previewAlt":"Food Plaza storefront image from the live homepage"},
+      {"name":"RP Events","domain":"rpevent.in","url":"https://rpevent.in/","category":"business","categoryLabel":"Events / Weddings","desc":"The digital home for RP Events, focused on celebrations, wedding experiences, and event planning.","keywords":"rp events muzaffarpur wedding event planner","previewImage":"https://lh3.googleusercontent.com/aida-public/AB6AXuCbvELONMpEQL5p4YHzIiBUc3AX4LYrE78EGuFPo2e64u2RRgXyH8gdx8DeTDEGHeAfEyybpw8QBCLB3oN_BdaGqger3TJcxmgQ2MJ8LM3d-V127BBydy6SkOAWTtl4ySzoIw8cgjnI6h7wVDoeefA29UlSgQcMY8zlE7YPJziQ_D1eO6RY6dXltfqtz2N6T47P4JEn0DtYnPIReK-wphCb1hhpO6jbpcCJo1rwcgKOMCRo3xw40DFkPNUKz614YveQ--gojagUf2IO","previewAlt":"Royal wedding hero image from the RP Events project family"},
+      {"name":"Dr. Mugdha Mohan","domain":"doctor-mugdamohan.vercel.app","url":"https://doctor-mugdamohan.vercel.app/","category":"business","categoryLabel":"Healthcare / Local SEO","desc":"A dermatologist website concept with service information, local discovery, and WhatsApp-first enquiries.","keywords":"dr mugdha mohan dermatologist skin clinic bettiah","previewImage":"https://bigohealth-images.s3.amazonaws.com/Doctor_bettiah/dr-mughda-mohan-bettiah.jpeg","previewAlt":"Dr. Mugdha Mohan portrait used in the homepage hero"},
+      {"name":"WebTea Studio","domain":"webxtea.vercel.app","url":"https://webxtea.vercel.app/","category":"product","categoryLabel":"WebTea / Studio","desc":"WebTea's studio front door for brand-led websites, digital experiences, and creative technology.","keywords":"webtea agency studio web design development","previewImage":"https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=1200","previewAlt":"WebTea Studio visual from its live homepage","previewVideo":"https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260702_081127_0992a171-d3c6-4978-8213-0ec5df8b6d63.mp4"},
+      {"name":"RP Events — Alternate Build","domain":"rpevents-one.vercel.app","url":"https://rpevents-one.vercel.app/","category":"creative","categoryLabel":"Creative / Events","desc":"An alternate RP Events build exploring a cinematic, luxury-led wedding and event direction.","keywords":"rp events alternate deployment luxury wedding","previewImage":"https://lh3.googleusercontent.com/aida-public/AB6AXuCbvELONMpEQL5p4YHzIiBUc3AX4LYrE78EGuFPo2e64u2RRgXyH8gdx8DeTDEGHeAfEyybpw8QBCLB3oN_BdaGqger3TJcxmgQ2MJ8LM3d-V127BBydy6SkOAWTtl4ySzoIw8cgjnI6h7wVDoeefA29UlSgQcMY8zlE7YPJziQ_D1eO6RY6dXltfqtz2N6T47P4JEn0DtYnPIReK-wphCb1hhpO6jbpcCJo1rwcgKOMCRo3xw40DFkPNUKz614YveQ--gojagUf2IO","previewAlt":"Royal wedding hero background from the alternate RP Events build"},
+      {"name":"RP Events Connector","domain":"connector-rp-events.vercel.app","url":"https://connector-rp-events.vercel.app/","category":"product","categoryLabel":"Web / Event tools","desc":"A connected companion experience for the RP Events ecosystem and its digital touchpoints.","keywords":"rp events connector booking system digital","previewImage":"https://connector-rp-events.vercel.app/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2Faida-public%2FAB6AXuDI3To-CwBcrd1NUDBjQ7hHhWx6td_M0wSt8tdBhHLH-UyUrdVUEez66N8sW_YloiTAsCVk0jhkmCvaZjs1bo3cm0JGBG-JclzuuATQKduRsyCS-Usx3-jAZVPnzNSulOCI-O6Zc4Er2Sa9gea-GIV2SKMVxOBExUKIBY3qbvjoklxaVnM5aHdDcM74nB2vvYU3VtRB1YiIzKnMwC8DC_NRVVzaiILQjN0TMmOedJ6tUO8lL9DrNVe_5rqVjvV7kow1oA&w=1600&q=75","previewAlt":"RP Events logo image from the connector homepage"},
+      {"name":"Richa Furniture","domain":"richa-furniture-alpha.vercel.app","url":"https://richa-furniture-alpha.vercel.app/","category":"business","categoryLabel":"Business / Retail","desc":"A furniture website for Richa Furniture in Bettiah, using showroom photography and a product-led presentation.","keywords":"richa furniture bettiah sofa interior showroom","previewImage":"https://kinwud.com/static/img/store-img/richa-furniture-bettiah.jpg?v=21789202369","previewAlt":"Richa Furniture showroom hero image"},
+      {"name":"GymBTH","domain":"gymbth.vercel.app","url":"https://gymbth.vercel.app/","category":"business","categoryLabel":"Business / Fitness","desc":"A fitness-focused website concept with training spaces, workout programmes, and community imagery.","keywords":"gymbth kingdom gym fitness workout training","previewImage":"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=90","previewAlt":"Gym training floor hero image"},
+      {"name":"Hotel Kishan","domain":"hotelkishan.vercel.app","url":"https://hotelkishan.vercel.app/","category":"business","categoryLabel":"Business / Hospitality","desc":"A hospitality website concept built around calm interiors, guest rooms, and a clear stay experience.","keywords":"hotel kishan hospitality stay rooms","previewImage":"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=88","previewAlt":"Hotel Kishan lounge hero image"},
+      {"name":"Hotel Website — W","domain":"hotelw-three.vercel.app","url":"https://hotelw-three.vercel.app/","category":"business","categoryLabel":"Business / Hospitality","desc":"A second Hotel Kishan web experience focused on room information and hospitality details.","keywords":"hotel w hotel kishan bettiah hospitality rooms","previewImage":"https://content.jdmagicbox.com/comp/bettiah/i5/9999p6254.6254.180908200923.l6i5/catalogue/hotel-kishan-bettiah-hotels-nhtg9elhpb.jpg?imwidth=1600","previewAlt":"Hotel Kishan exterior image from the live homepage"},
+      {"name":"YSFC","domain":"ysfc.vercel.app","url":"https://ysfc.vercel.app/","category":"business","categoryLabel":"Sports / Community","desc":"A digital home for Young Star Football Club, built around its team, coach, and football culture.","keywords":"ysfc young star football club football training","previewImage":"https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1400&q=85","previewAlt":"Football pitch image from the YSFC homepage"},
+      {"name":"Vintage Dream Wedding","domain":"vintage-dream-wedding.vercel.app","url":"https://vintage-dream-wedding.vercel.app/","category":"creative","categoryLabel":"Creative / Wedding","desc":"A wedding experience with Indian heritage cues and an immersive, story-led visual direction.","keywords":"vintage dream wedding website luxury invitation indian wedding","previewImage":"https://framerusercontent.com/images/Zrnq96rxcNCLdk4Yaz94Dup5Q.webp?width=1200&height=700","previewAlt":"Wedding visual from the live wedding experience"}
     ];
 
     const grid = document.getElementById("projectGrid");
@@ -846,12 +710,15 @@
 
     function createCard(project, index) {
       const n = String(index + 1).padStart(2, "0");
-      return '<article class="project-card" style="animation-delay:' + Math.min(index * 25, 250) + 'ms">' +
-        '<div class="project-art ' + safeText(project.art) + '" aria-hidden="true">' +
-          '<div class="art-toolbar"><span class="art-dots"><i></i><i></i><i></i></span><span class="art-domain">' + safeText(project.domain) + '</span></div>' +
-          '<div class="art-main"><span class="art-kicker">' + safeText(project.kicker) + '</span><strong class="art-title">' + safeText(project.artTitle) + '</strong><span class="art-sub">' + safeText(project.artSub) + '</span></div>' +
-          '<span class="art-index">WT / ' + n + '</span>' +
-        '</div>' +
+      const media = project.previewVideo
+        ? '<video class="project-preview-media" src="' + safeText(project.previewVideo) + '" poster="' + safeText(project.previewImage) + '" muted autoplay loop playsinline preload="metadata" aria-label="' + safeText(project.previewAlt) + '"></video>'
+        : '<img class="project-preview-media" src="' + safeText(project.previewImage) + '" alt="' + safeText(project.previewAlt) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer">';
+      return '<article class="project-card" style="animation-delay:' + Math.min(index * 18, 180) + 'ms">' +
+        '<a class="project-preview" href="' + safeText(project.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Preview and open ' + safeText(project.name) + '">' +
+          media +
+          '<span class="preview-tag">Hero preview</span>' +
+          '<span class="preview-index">' + n + ' / ' + String(projects.length).padStart(2, "0") + '</span>' +
+        '</a>' +
         '<div class="project-info">' +
           '<div class="project-meta"><span class="project-category">' + safeText(project.categoryLabel) + '</span><span class="project-number">' + n + ' / ' + String(projects.length).padStart(2, "0") + '</span></div>' +
           '<h3>' + safeText(project.name) + '</h3>' +
