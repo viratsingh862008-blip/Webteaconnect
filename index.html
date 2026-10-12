@@ -101,6 +101,8 @@
       text-decoration: none;
       min-width: 185px;
     }
+    .brand-mark--logo { width: 58px; height: 42px; overflow: hidden; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+    .brand-mark--logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .brand-mark {
       display: grid;
       place-items: center;
@@ -244,7 +246,7 @@
     .hero-tile-label span { font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.72); }
     .hero-tile-label strong { font: 600 16px/1.15 var(--display); letter-spacing: -.035em; }
     .hero-art-note { position: absolute; left: 14px; bottom: 0; display: flex; align-items: center; gap: 9px; color: #a9c0b3; font: 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
-    .hero-art-note-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--acid); }
+    .hero-art-note-dot { width: 5px; height: 5px; border-radius: 0; background: var(--acid); box-shadow: none; flex: 0 0 auto; }
     @media (max-width: 960px) { .hero-art { min-height: 380px; } .hero-tile--large { min-height: 300px; } }
     @media (max-width: 600px) { .hero-art { min-height: 330px; padding: 0 0 30px; gap: 8px; } .hero-tile--large { min-height: 275px; } .hero-tile--wide, .hero-tile--portrait { min-height: 130px; } .hero-tile-label { left: 10px; bottom: 10px; } .hero-tile-label strong { font-size: 12px; } .hero-tile-label span { font-size: 7px; } .hero-art-note { left: 0; } }
     .ticker { overflow: hidden; background: var(--acid); color: var(--pine-deep); border-bottom: 1px solid rgba(18,63,52,.15); }
@@ -374,7 +376,7 @@
     .capability-num { color: #7a8b78; font: 10px var(--mono); }
     .capability h3 { margin: 0; font: 600 19px var(--display); letter-spacing: -.04em; }
     .capability p { margin: 5px 0 0; color: #68776b; font-size: 11px; line-height: 1.6; }
-    .capability-mark { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid rgba(18,63,52,.23); border-radius: 50%; font: 12px var(--mono); }
+    .capability-mark { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid rgba(18,63,52,.23); border-radius: 3px; font: 12px var(--mono); background: transparent; }
 
     .contact { padding-block: 95px 100px; }
     .contact-box {
@@ -509,14 +511,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="WebTea Connect home">
         <span class="brand-mark brand-mark--logo" aria-hidden="true">
-          <svg viewBox="0 0 120 48" role="img" aria-label="WebTea logo">
-            <rect width="120" height="48" rx="8" fill="#f8f5f2"/>
-            <text x="7" y="30" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="-1.4" fill="#101c26">web</text>
-            <path d="M54 16 Q54 11 60 11 Q66 11 66 16 L63 34 Q60 38 57 34Z" fill="#ef8b21" stroke="#101c26" stroke-width="1.4"/>
-            <ellipse cx="60" cy="16" rx="6" ry="2.2" fill="#f5a23b" stroke="#101c26" stroke-width="1.2"/>
-            <path d="M60 8 C55 4 61 3 60 1 M64 8 C69 4 63 3 64 1" stroke="#b8b8b8" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-            <text x="70" y="30" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="-1" fill="#101c26">.in</text>
-          </svg>
+          <img src="https://www.image2url.com/r2/default/images/1791796823677-06dc83e4-7c14-4f18-bdfc-ac481c295ccb.png" alt="WebTea logo" decoding="async">
         </span>
         <span class="brand-copy">
           <span class="brand-name">WebTea Connect</span>
