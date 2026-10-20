@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#123f34">
-  <meta name="description" content="WebTea Connect is the living directory of websites, digital products, and creative experiments built by WebTea. Explore the work and open every live project.">
+  <meta name="description" content="WebTea helps local businesses get discovered, build trust, create standout content, and generate enquiries through websites, local SEO, social media, reputation tools, and Meta Ads.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="WebTea Connect — Every build, one place.">
-  <meta property="og:description" content="Explore WebTea’s live websites, digital products, business tools, and creative experiments in one connected directory.">
+  <meta property="og:title" content="WebTea Connect — Digital growth, connected.">
+  <meta property="og:description" content="Meet WebTea, explore our services and selected work, and start a project to grow your business online.">
   <meta property="og:theme-color" content="#123f34">
-  <title>WebTea Connect — Every build, one place.</title>
+  <title>WebTea Connect — Digital growth, connected.</title>
   <script>
   (function(r){try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&typeof r.animate==="function"){r.classList.add("px-intro");window.__pxFailsafe=setTimeout(function(){r.classList.remove("px-intro")},4000)}}catch(e){}})(document.documentElement);
   </script>
@@ -701,6 +701,82 @@
     }
 
 
+
+    /* WebTea Connect agency front door: about, services and honest proof */
+    .agency-about { padding-block:88px; background:var(--paper); }
+    .agency-about-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start; }
+    .agency-about-copy h2 { margin:16px 0 0; font:600 clamp(42px,5vw,64px)/1.02 var(--display); letter-spacing:-.08em; }
+    .agency-about-copy h2 em { color:#4b7f62; font-style:normal; }
+    .agency-about-detail { max-width:570px; }
+    .agency-about-detail p { margin:0 0 15px; color:var(--muted); font-size:14px; line-height:1.85; }
+    .agency-about-detail .agency-about-lead { color:var(--pine); font-size:19px; line-height:1.55; font-weight:600; letter-spacing:-.025em; }
+    .about-principles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:27px 0 25px; padding-top:19px; border-top:1px solid var(--line); }
+    .about-principles div { display:flex; flex-direction:column; gap:8px; }
+    .about-principles span { color:#77907e; font:10px var(--mono); }
+    .about-principles strong { color:var(--pine); font-size:11px; line-height:1.45; }
+    .text-link { display:inline-flex; align-items:center; gap:10px; color:var(--pine); text-decoration:none; font-size:12px; font-weight:700; }
+    .text-link span { display:inline-block; transition:transform .2s ease; }
+    .text-link:hover span { transform:translate(3px,-2px); }
+    .service-section { background:#eef0e5; border-block:1px solid rgba(18,63,52,.08); }
+    .service-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .service-card { display:flex; flex-direction:column; min-width:0; min-height:310px; padding:23px; border:1px solid rgba(18,63,52,.14); border-radius:20px; background:rgba(255,253,245,.88); transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; }
+    .service-card:hover { transform:translateY(-4px); box-shadow:0 15px 36px rgba(10,43,36,.08); border-color:rgba(18,63,52,.3); }
+    .service-card--featured { background:var(--pine); color:var(--paper); border-color:var(--pine); }
+    .service-card--product { background:#e2f3e9; }
+    .service-card--addon { background:#f7eadb; }
+    .service-card-top { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .service-number { color:#829486; font:10px var(--mono); letter-spacing:.08em; }
+    .service-label { color:#627a68; font:8px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+    .service-card--featured .service-number,.service-card--featured .service-label { color:#d5f76b; }
+    .service-symbol { display:grid; place-items:center; width:45px; height:45px; margin:23px 0 17px; border:1px solid rgba(18,63,52,.16); border-radius:13px; color:var(--pine-mid); background:rgba(255,255,255,.46); }
+    .service-symbol svg { width:27px; height:27px; }
+    .service-card--featured .service-symbol { color:var(--acid); border-color:rgba(255,255,255,.2); background:rgba(255,255,255,.06); }
+    .service-card h3 { margin:0; color:var(--pine); font:600 22px/1.1 var(--display); letter-spacing:-.055em; }
+    .service-card--featured h3 { color:var(--paper); }
+    .service-card p { margin:11px 0 22px; color:#66756a; font-size:12px; line-height:1.75; }
+    .service-card--featured p { color:#c7d6cb; }
+    .service-link { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; border-top:1px solid rgba(18,63,52,.13); color:var(--pine); text-decoration:none; font-size:11px; font-weight:700; }
+    .service-card--featured .service-link { color:var(--acid); border-color:rgba(255,255,255,.2); }
+    .service-link span { transition:transform .2s ease; }
+    .service-link:hover span { transform:translate(3px,-2px); }
+    .service-footnote { display:flex; align-items:flex-start; gap:10px; margin-top:22px; color:#637466; font-size:11px; line-height:1.7; }
+    .service-footnote span { color:#d77b5f; font-size:16px; line-height:1; }
+    .testimonial-section { background:var(--paper); }
+    .testimonial-proof-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .testimonial-proof { min-height:270px; padding:28px; border:1px solid var(--line); border-radius:22px; background:#eef0e5; }
+    .testimonial-proof--dark { color:var(--paper); background:var(--pine-deep); border-color:var(--pine-deep); }
+    .proof-mark { display:grid; place-items:center; width:38px; height:38px; margin-bottom:24px; border:1px solid rgba(18,63,52,.18); border-radius:50%; color:var(--pine); font-size:17px; }
+    .testimonial-proof--dark .proof-mark { color:var(--acid); border-color:rgba(255,255,255,.25); }
+    .proof-label { display:block; margin-bottom:10px; color:#718173; font:9px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+    .testimonial-proof--dark .proof-label { color:#b2c6b7; }
+    .testimonial-proof h3 { margin:0 0 11px; color:var(--pine); font:600 clamp(23px,3vw,31px)/1.1 var(--display); letter-spacing:-.06em; }
+    .testimonial-proof--dark h3 { color:var(--paper); }
+    .testimonial-proof p { max-width:52ch; margin:0 0 22px; color:#66756a; font-size:12px; line-height:1.75; }
+    .testimonial-proof--dark p { color:#c1d0c5; }
+    .testimonial-proof--dark .text-link { color:var(--acid); }
+    @media (max-width:900px) {
+      .agency-about-grid { grid-template-columns:1fr 1fr; gap:32px; }
+      .service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .service-card { min-height:295px; }
+    }
+    @media (max-width:600px) {
+      .agency-about { padding-block:58px; }
+      .agency-about-grid { grid-template-columns:minmax(0,1fr); gap:21px; }
+      .agency-about-copy h2 { font-size:clamp(38px,10vw,49px); }
+      .agency-about-detail .agency-about-lead { font-size:17px; }
+      .agency-about-detail p { font-size:13px; }
+      .about-principles { gap:9px; margin:22px 0; }
+      .about-principles strong { font-size:10px; }
+      .service-grid { grid-template-columns:minmax(0,1fr); gap:11px; }
+      .service-card { min-height:0; padding:21px; }
+      .service-symbol { margin:19px 0 14px; }
+      .service-card h3 { font-size:23px; }
+      .service-card p { font-size:12px; }
+      .testimonial-proof-grid { grid-template-columns:minmax(0,1fr); gap:12px; }
+      .testimonial-proof { min-height:0; padding:23px; }
+      .proof-mark { margin-bottom:18px; }
+    }
+
     /* Parallax hero styles are defined above. */
   </style>
   <script type="application/ld+json">
@@ -762,8 +838,10 @@
         </span>
       </a>
       <nav class="nav-links" id="primaryNav" aria-label="Main navigation">
-        <a href="#work">Work directory</a>
-        <a href="#approach">What we build</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Our work</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="nav-cta" href="#contact">Start a project <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -782,6 +860,68 @@
       </div>
     </div>
 
+
+    <section class="agency-about section" id="about">
+      <div class="wrap agency-about-grid">
+        <div class="agency-about-copy"><span class="eyebrow">A little about WebTea</span><h2>Good ideas deserve<br><em>a better internet.</em></h2></div>
+        <div class="agency-about-detail">
+          <p class="agency-about-lead">WebTea is a digital growth studio helping businesses show up, look credible, and turn attention into enquiries.</p>
+          <p>We connect strategy, design, content, local search, and performance marketing into one practical system. No disconnected deliverables for the sake of a checklist—just thoughtful digital work built around what a business needs next.</p>
+          <div class="about-principles"><div><span>01</span><strong>Strategy before noise</strong></div><div><span>02</span><strong>Design with a purpose</strong></div><div><span>03</span><strong>Measure what matters</strong></div></div>
+          <a class="text-link" href="#services">Explore our services <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="section service-section" id="services">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">What we do</span><h2>Seven ways to<br>move business forward.</h2></div>
+          <p class="section-intro">Start with the challenge you have today. We can deliver a focused service or connect several into a growth system that fits your goals.</p></div>
+        <div class="service-grid">
+          <article class="service-card service-card--featured">
+            <div class="service-card-top"><span class="service-number">01</span><span class="service-label">LOCAL DISCOVERY</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>Google Business Profile</h3><p>Creation, setup guidance, profile optimization, services, photos, updates, and stronger local discovery on Google Search and Maps.</p>
+            <a href="#contact" class="service-link">Improve local visibility <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card ">
+            <div class="service-card-top"><span class="service-number">02</span><span class="service-label">DIGITAL FOUNDATION</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>Website Design & Development</h3><p>Professional, mobile-friendly websites and landing pages with clear service information, WhatsApp enquiries, and booking features when needed.</p>
+            <a href="#contact" class="service-link">Build your website <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card ">
+            <div class="service-card-top"><span class="service-number">03</span><span class="service-label">CONTENT STUDIO</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>Social Media & Video Production</h3><p>Content strategy, shoots, Reels, Shorts, editing, motion graphics, creative posts, publishing support, and performance reviews.</p>
+            <a href="#contact" class="service-link">Create content with us <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card service-card--product">
+            <div class="service-card-top"><span class="service-number">04</span><span class="service-label">WEBTEA PRODUCT</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>AI Review & Reputation System</h3><p>A branded hub for social links and Google review access, QR entry points, feedback workflows, and AI-assisted review drafts based on real customer experiences.</p>
+            <a href="#contact" class="service-link">Explore the review system <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card ">
+            <div class="service-card-top"><span class="service-number">05</span><span class="service-label">SEARCH VISIBILITY</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>SEO & GEO Optimization</h3><p>Technical and on-page SEO, local keyword strategy, structured data, useful content, and readiness for AI-powered search experiences.</p>
+            <a href="#contact" class="service-link">Improve search visibility <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card ">
+            <div class="service-card-top"><span class="service-number">06</span><span class="service-label">PAID GROWTH</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>Meta Ads & Lead Generation</h3><p>Facebook and Instagram campaigns, audience targeting, ad creatives, WhatsApp or lead-form journeys, and ongoing optimization and reporting.</p>
+            <a href="#contact" class="service-link">Plan a campaign <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card service-card--addon">
+            <div class="service-card-top"><span class="service-number">07</span><span class="service-label">CREATIVE ADD-ON</span></div>
+            <div class="service-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3 19.5 12.5 29 16l-9.5 3.5L16 29l-3.5-9.5L3 16l9.5-3.5L16 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="16" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <h3>Branding & Graphic Design</h3><p>Logo and visual identity, brand colors and typography, posters, brochures, menus, business cards, and campaign creatives.</p>
+            <a href="#contact" class="service-link">Shape your brand <span aria-hidden="true">↗</span></a>
+          </article></div>
+        <div class="service-footnote"><span aria-hidden="true">✳</span> Need something more advanced? Custom AI automation and software are scoped as tailored projects when the business case is right.</div>
+      </div>
+    </section>
     <section class="section" id="work">
       <div class="wrap">
         <div class="section-head directory-head">
@@ -789,7 +929,7 @@
             <span class="eyebrow">The project directory</span>
             <h2>Made for the real world.<br>Built to be clicked.</h2>
           </div>
-          <p class="section-intro">Fifteen live builds across commerce, hospitality, healthcare, events, and creative experiments. Search by name, filter the work, then open the real site.</p>
+          <p class="section-intro">A selection of WebTea websites, digital products, business tools, and creative experiments. Search by name, filter the work, then open the live project.</p>
         </div>
         <div class="directory-topline">
           <span class="result-count" id="resultCount" aria-live="polite">Loading project directory…</span>
@@ -829,11 +969,11 @@
     <section class="manifesto" id="approach">
       <div class="wrap manifesto-grid">
         <div class="manifesto-side">
-          <span class="eyebrow">What we bring to the table</span>
-          <p>From the first sketch to the final click, we connect the pieces that make a digital experience feel intentional.</p>
+          <span class="eyebrow">How we think</span>
+          <p>We start with the business goal, choose the right digital tools, and make the work clear enough to measure and improve.</p>
         </div>
         <div>
-          <h2>Not just websites.<br><em>Useful things on the internet.</em></h2>
+          <h2>Not just deliverables.<br><em>Progress you can build on.</em></h2>
           <div class="capability-list">
             <article class="capability">
               <span class="capability-num">01 /</span>
@@ -860,6 +1000,16 @@
       </div>
     </section>
 
+    <section class="testimonial-section section" id="testimonials">
+      <div class="wrap">
+        <div class="section-head"><div><span class="eyebrow">Client words</span><h2>Trust should be<br>earned, not invented.</h2></div>
+          <p class="section-intro">We only publish testimonials with real client permission. Until approved feedback is ready to share, explore the live projects and the work behind them.</p></div>
+        <div class="testimonial-proof-grid">
+          <article class="testimonial-proof"><span class="proof-mark" aria-hidden="true">↗</span><span class="proof-label">01 / Selected work</span><h3>See the work for yourself.</h3><p>Browse live project links and explore the experiences we have built across business, healthcare, hospitality, events, and creative work.</p><a href="#work" class="text-link">Explore project samples <span aria-hidden="true">↗</span></a></article>
+          <article class="testimonial-proof testimonial-proof--dark"><span class="proof-mark" aria-hidden="true">✳</span><span class="proof-label">02 / Real feedback only</span><h3>Client stories, with permission.</h3><p>We do not use made-up quotes or anonymous praise. This section will feature genuine feedback once clients approve it for publication.</p><a href="#contact" class="text-link">Become a WebTea client <span aria-hidden="true">↗</span></a></article>
+        </div>
+      </div>
+    </section>
     <section class="contact" id="contact">
       <div class="wrap">
         <div class="contact-box">
