@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webteaconnect.vercel.app/sitemap.xml
